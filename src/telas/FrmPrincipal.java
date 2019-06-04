@@ -74,7 +74,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(129, 184, 197));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -113,6 +114,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 160, 60));
 
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 117, -1, 238));
+
         PanelConsulta.setBackground(new java.awt.Color(204, 204, 204));
         PanelConsulta.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -125,7 +128,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "endereco", "telefone", "cidade"
+                "codigo", "nome", "documento", "telefone", "endereco", "cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -139,7 +142,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jScrollPane8.setViewportView(JTableVisitante);
         if (JTableVisitante.getColumnModel().getColumnCount() > 0) {
             JTableVisitante.getColumnModel().getColumn(0).setResizable(false);
-            JTableVisitante.getColumnModel().getColumn(0).setPreferredWidth(7);
+            JTableVisitante.getColumnModel().getColumn(0).setPreferredWidth(5);
             JTableVisitante.getColumnModel().getColumn(1).setResizable(false);
             JTableVisitante.getColumnModel().getColumn(2).setResizable(false);
             JTableVisitante.getColumnModel().getColumn(3).setResizable(false);
@@ -164,9 +167,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,9 +181,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel5Layout.createSequentialGroup()
-                    .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 48, Short.MAX_VALUE)))
+                .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
         );
 
         JTScroll.addTab("visitantes", jPanel5);
@@ -192,11 +193,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "endereco", "telefone", "cidade"
+                "codigo", "Empresa", "CNPJ", "Responsavel", "telefone", "endereco", "cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false
+                true, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -206,12 +207,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jScrollPane7.setViewportView(jTableFornecedor);
         if (jTableFornecedor.getColumnModel().getColumnCount() > 0) {
             jTableFornecedor.getColumnModel().getColumn(0).setResizable(false);
-            jTableFornecedor.getColumnModel().getColumn(0).setPreferredWidth(7);
+            jTableFornecedor.getColumnModel().getColumn(0).setPreferredWidth(5);
             jTableFornecedor.getColumnModel().getColumn(1).setResizable(false);
             jTableFornecedor.getColumnModel().getColumn(2).setResizable(false);
             jTableFornecedor.getColumnModel().getColumn(3).setResizable(false);
             jTableFornecedor.getColumnModel().getColumn(4).setResizable(false);
             jTableFornecedor.getColumnModel().getColumn(5).setResizable(false);
+            jTableFornecedor.getColumnModel().getColumn(6).setResizable(false);
         }
 
         jButton11.setText("Inserir");
@@ -231,9 +233,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,9 +247,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel4Layout.createSequentialGroup()
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 48, Short.MAX_VALUE)))
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
         );
 
         JTScroll.addTab("Fornecedores", jPanel4);
@@ -259,11 +259,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "endereco", "telefone", "cidade"
+                "codigo", "nome", "documento", "Empresa", "Funcao", "telefone", "endereco", "cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -273,12 +273,14 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jScrollPane9.setViewportView(jTablePrestServico);
         if (jTablePrestServico.getColumnModel().getColumnCount() > 0) {
             jTablePrestServico.getColumnModel().getColumn(0).setResizable(false);
-            jTablePrestServico.getColumnModel().getColumn(0).setPreferredWidth(7);
+            jTablePrestServico.getColumnModel().getColumn(0).setPreferredWidth(5);
             jTablePrestServico.getColumnModel().getColumn(1).setResizable(false);
             jTablePrestServico.getColumnModel().getColumn(2).setResizable(false);
             jTablePrestServico.getColumnModel().getColumn(3).setResizable(false);
             jTablePrestServico.getColumnModel().getColumn(4).setResizable(false);
             jTablePrestServico.getColumnModel().getColumn(5).setResizable(false);
+            jTablePrestServico.getColumnModel().getColumn(6).setResizable(false);
+            jTablePrestServico.getColumnModel().getColumn(7).setResizable(false);
         }
 
         jButton8.setText("Inserir");
@@ -298,9 +300,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
                 .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addContainerGap(350, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 835, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,35 +314,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel3Layout.createSequentialGroup()
-                    .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 48, Short.MAX_VALUE)))
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE))
         );
 
         JTScroll.addTab("Prestador Serviço", jPanel3);
 
-        PanelConsulta.add(JTScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 697, 390));
+        PanelConsulta.add(JTScroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 840, 390));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(13, 13, 13)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(PanelConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PanelConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(48, Short.MAX_VALUE))
-        );
+        jPanel1.add(PanelConsulta, new org.netbeans.lib.awtextra.AbsoluteConstraints(191, 117, -1, 386));
+
+        jMenuBar1.setBackground(new java.awt.Color(0, 204, 204));
 
         jMenu1.setText("Clientes");
 
@@ -398,13 +381,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1085, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -475,7 +456,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
          preencherTableCliente();
     }
      public void preencherTableCliente(){
-        DefaultTableModel modelo = (DefaultTableModel) JTScroll.getModel();
+        DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
         modelo.setNumRows(0);   
          CadastroDao cdao = new CadastroDao();
          for (Cadastro c: cdao.read())
