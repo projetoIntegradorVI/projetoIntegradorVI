@@ -49,6 +49,7 @@ public class TelaLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setName("frame_Login"); // NOI18N
         setUndecorated(true);
+        setResizable(false);
 
         jPCentro.setLayout(new java.awt.GridBagLayout());
 
@@ -118,6 +119,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jB_Logar.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jB_Logar.setText("Logar");
+        jB_Logar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_LogarActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 0;
         gridBagConstraints.gridy = 2;
@@ -137,6 +143,11 @@ public class TelaLogin extends javax.swing.JFrame {
 
         jB_Sair.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jB_Sair.setText("Sair");
+        jB_Sair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_SairActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 5;
         gridBagConstraints.gridy = 2;
@@ -177,8 +188,21 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jPBaixo, java.awt.BorderLayout.PAGE_END);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jB_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jB_SairActionPerformed
+
+    private void jB_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LogarActionPerformed
+        abreSistema();
+    }//GEN-LAST:event_jB_LogarActionPerformed
+public void abreSistema(){
+    FrmPrincipal f = new FrmPrincipal();
+    f.setVisible(true);
+    this.dispose();
+}
     /**
      * @param args the command line arguments
      */

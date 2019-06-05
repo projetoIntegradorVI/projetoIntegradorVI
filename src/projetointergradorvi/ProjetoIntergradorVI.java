@@ -6,6 +6,7 @@
 package projetointergradorvi;
 
 import telas.FrmPrincipal;
+import telas.TelaLogin;
 
 /**
  *
@@ -18,8 +19,8 @@ public class ProjetoIntergradorVI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        FrmPrincipal f  =  new FrmPrincipal();
-        f.setVisible(true);
+        telas.TelaLogin tl  =  new TelaLogin();
+        tl.setVisible(true);
     }
     
 }

@@ -77,7 +77,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAlwaysOnTop(true);
+        setAutoRequestFocus(false);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(129, 184, 197));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -506,12 +507,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       panelConsultaAberto();
-       preencherTableCliente();
+      
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        // TODO add your handling code here:
+         panelConsultaAberto();
+       preencherTableCliente();
     }//GEN-LAST:event_jButton14ActionPerformed
     public void chamaTelaCadastro() {
         TelaCadastro tc = new TelaCadastro(this, rootPaneCheckingEnabled);
@@ -521,6 +522,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public void chamaTelaFornecedor() {
         TelaFornecedor tf = new TelaFornecedor(this, rootPaneCheckingEnabled);
         tf.setVisible(true);
+    }
+    public void chamaTelaOrcamento(){
+        TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
     }
 
     public void chamaTelaFuncionario() {
