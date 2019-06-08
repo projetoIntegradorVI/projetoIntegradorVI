@@ -9,13 +9,18 @@ package telas;
  *
  * @author Automacao
  */
-public class TelaLogin extends javax.swing.JFrame {
+public class TelaLogin extends javax.swing.JDialog {
 
     /**
-     * Creates new form TelaLogin
+     * Creates new form Login
      */
-    public TelaLogin() {
+    public TelaLogin(java.awt.Frame parent, boolean modal) {
+        super(parent, modal);
         initComponents();
+    }
+
+    public TelaLogin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -39,18 +44,18 @@ public class TelaLogin extends javax.swing.JFrame {
         jB_Cancelar = new javax.swing.JButton();
         jB_Sair = new javax.swing.JButton();
         jPTitulo = new javax.swing.JPanel();
-        jLimagemtitulo = new javax.swing.JLabel();
+        jL_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
         jPBaixo = new javax.swing.JPanel();
         jDireita = new javax.swing.JLabel();
         jLEsquerda = new javax.swing.JLabel();
         jLCentro_msg = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setName("frame_Login"); // NOI18N
-        setUndecorated(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setName("dialog_Login"); // NOI18N
         setResizable(false);
 
+        jPCentro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPCentro.setLayout(new java.awt.GridBagLayout());
 
         jB_icoLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user-icon.png"))); // NOI18N
@@ -161,8 +166,8 @@ public class TelaLogin extends javax.swing.JFrame {
         jPTitulo.setBackground(new java.awt.Color(102, 102, 102));
         jPTitulo.setPreferredSize(new java.awt.Dimension(0, 80));
 
-        jLimagemtitulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user-login-icon.png"))); // NOI18N
-        jPTitulo.add(jLimagemtitulo);
+        jL_img_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/user-login-icon.png"))); // NOI18N
+        jPTitulo.add(jL_img_titulo);
 
         jLabel_titulo.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
         jLabel_titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,7 +175,6 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel_titulo.setText("LOGIN");
         jLabel_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jPTitulo.add(jLabel_titulo);
-        jLabel_titulo.getAccessibleContext().setAccessibleName("jL_Titulo");
 
         getContentPane().add(jPTitulo, java.awt.BorderLayout.PAGE_START);
 
@@ -188,21 +192,16 @@ public class TelaLogin extends javax.swing.JFrame {
         getContentPane().add(jPBaixo, java.awt.BorderLayout.PAGE_END);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jB_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LogarActionPerformed
+        abreSistema();
+    }//GEN-LAST:event_jB_LogarActionPerformed
 
     private void jB_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jB_SairActionPerformed
 
-    private void jB_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LogarActionPerformed
-        abreSistema();
-    }//GEN-LAST:event_jB_LogarActionPerformed
-public void abreSistema(){
-    FrmPrincipal f = new FrmPrincipal();
-    f.setVisible(true);
-    this.dispose();
-}
     /**
      * @param args the command line arguments
      */
@@ -229,11 +228,19 @@ public void abreSistema(){
             java.util.logging.Logger.getLogger(TelaLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
-        /* Create and display the form */
+        /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaLogin().setVisible(true);
+                TelaLogin dialog = new TelaLogin(new javax.swing.JFrame(), true);
+                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                    @Override
+                    public void windowClosing(java.awt.event.WindowEvent e) {
+                        System.exit(0);
+                    }
+                });
+                dialog.setVisible(true);
             }
         });
     }
@@ -248,13 +255,17 @@ public void abreSistema(){
     private javax.swing.JLabel jLCentro_msg;
     private javax.swing.JLabel jLEsquerda;
     private javax.swing.JLabel jL_Senha;
+    private javax.swing.JLabel jL_img_titulo;
     private javax.swing.JLabel jL_usuario;
     private javax.swing.JLabel jLabel_titulo;
-    private javax.swing.JLabel jLimagemtitulo;
     private javax.swing.JPanel jPBaixo;
     private javax.swing.JPanel jPCentro;
     private javax.swing.JPanel jPTitulo;
     private javax.swing.JPasswordField jP_Senha;
     private javax.swing.JTextField jT_Usuario;
     // End of variables declaration//GEN-END:variables
+
+    private void abreSistema() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -19,8 +19,10 @@ public class ProjetoIntergradorVI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        telas.TelaLogin tl  =  new TelaLogin();
+        telas.TelaLogin tl =  new TelaLogin();
         tl.setVisible(true);
     }
     
+
+ 
 }
