@@ -52,6 +52,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         jLabel_titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
 
         jPCentro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPCentro.setLayout(new java.awt.GridBagLayout());
