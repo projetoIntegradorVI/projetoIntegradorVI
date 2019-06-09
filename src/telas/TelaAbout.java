@@ -78,8 +78,8 @@ public class TelaAbout extends javax.swing.JDialog {
         jPCentroLayout.setVerticalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jB_fechar)
                 .addGap(17, 17, 17))

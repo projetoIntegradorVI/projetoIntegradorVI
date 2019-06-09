@@ -75,6 +75,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jM_Ajuda = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jSeparator1 = new javax.swing.JPopupMenu.Separator();
+        jMenu_Sobre = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAutoRequestFocus(false);
@@ -449,6 +454,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4);
 
+        jM_Ajuda.setText("Ajuda");
+
+        jMenuItem7.setText(".....");
+        jM_Ajuda.add(jMenuItem7);
+
+        jMenuItem8.setText("...");
+        jM_Ajuda.add(jMenuItem8);
+        jM_Ajuda.add(jSeparator1);
+
+        jMenu_Sobre.setText("Sobre...");
+        jM_Ajuda.add(jMenu_Sobre);
+
+        jMenuBar1.add(jM_Ajuda);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -611,6 +630,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JMenu jM_Ajuda;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -621,6 +641,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenu_Sobre;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -632,6 +655,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTable jTablePrestServico;
     private javax.swing.JTable jTablePrestServico1;
