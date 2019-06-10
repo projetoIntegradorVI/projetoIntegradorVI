@@ -5,8 +5,9 @@
  */
 package projetointergradorvi;
 
-import telas.FrmPrincipal;
 import telas.TelaLogin;
+
+
 
 /**
  *
@@ -19,8 +20,10 @@ public class ProjetoIntergradorVI {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        telas.TelaLogin tl =  new TelaLogin();
+        
+        TelaLogin tl = new TelaLogin(new javax.swing.JFrame(), true); //modificado 10/06/19
         tl.setVisible(true);
+        
     }
     
 
