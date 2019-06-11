@@ -43,7 +43,7 @@ public class TelaAbout extends javax.swing.JDialog {
         jTitulo.add(jL_img_logo);
 
         jLabel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jLabel3.setText("Software para o componente curricular PROJETO INTEGRADOR VI.");
+        jLabel3.setText("<html>\n<p>&nbsp;</p>\n\n<p><span style=\"font-size:12px\"><span style=\"font-family:arial,helvetica,sans-serif\">Software <strong>Easy Mait</strong>&nbsp; desenvolvido para o componente curricular PROJETO INTEGRADOR VI&nbsp; EAD</span></span></p>\n\n<p><span style=\"font-size:12px\">da Universidade do Vale do Taquari - UNIVATES.</span></p>\n\n<p><span style=\"font-size:12px\">Nome do Grupo: <strong>Data Mining</strong></span></p>\n\n<p><span style=\"font-size:12px\">Integrantes :</span></p>\n\n<ul>\n\t<li><span style=\"font-size:12px\">Paulo Roberto de Oliveira</span></li>\n\t<li><span style=\"font-size:12px\">David Porn</span></li>\n\t<li><span style=\"font-size:12px\">Gabriel Trautmann Moraes</span></li>\n</ul>\n</html>");
         jTitulo.add(jLabel3);
 
         getContentPane().add(jTitulo, java.awt.BorderLayout.PAGE_START);
@@ -68,21 +68,21 @@ public class TelaAbout extends javax.swing.JDialog {
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPCentroLayout.createSequentialGroup()
-                .addGap(282, 282, 282)
+                .addGap(414, 414, 414)
                 .addComponent(jB_fechar)
-                .addContainerGap(282, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPCentroLayout.setVerticalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addComponent(jB_fechar)
-                .addGap(17, 17, 17))
+                .addGap(19, 19, 19))
         );
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
