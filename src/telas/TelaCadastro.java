@@ -6,6 +6,7 @@
 package telas;
 
 import controle.Cadastro;
+import javax.swing.JOptionPane;
 import modelo.CadastroDao;
 
 /**
@@ -242,16 +243,20 @@ FrmPrincipal f = new FrmPrincipal();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCliActionPerformed
-        Cadastro c = new Cadastro();
-        CadastroDao  cd = new CadastroDao();
+        teste();
+
+
+
+      //Cadastro c = new Cadastro();
+       // CadastroDao  cd = new CadastroDao();
         
-        c.setNome(txtNomeCli.getText());
-        c.setDocumento(txtDocCli.getText());
-        c.setTelefone(txtTelCli.getText());
-        c.setEndereco(txtEndCli.getText());
-        c.setCidade(txtCidCli.getText());
-        cd.inserir(c);
-        f.preencherTableCliente();
+       // c.setNome(txtNomeCli.getText());
+       // c.setDocumento(txtDocCli.getText());
+       // c.setTelefone(txtTelCli.getText());
+        //c.setEndereco(txtEndCli.getText());
+       // c.setCidade(txtCidCli.getText());
+       // cd.inserir(c);
+       // f.preencherTableCliente();
     }//GEN-LAST:event_btnCadCliActionPerformed
 
     private void jbCanCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCanCadClienteActionPerformed
@@ -267,6 +272,9 @@ FrmPrincipal f = new FrmPrincipal();
      txtEndCli.setText("");
      txtNomeCli.setText("");
      txtTelCli.setText("");
+    }
+     public void teste(){
+        JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
     }
     /**
      * @param args the command line arguments

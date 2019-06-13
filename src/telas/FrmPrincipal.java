@@ -545,7 +545,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jP_Direita, java.awt.BorderLayout.LINE_END);
 
-        jMenuBar1.setBackground(new java.awt.Color(0, 204, 204));
+        jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
 
         jMenu1.setText("Clientes");
 
@@ -793,18 +793,18 @@ public class FrmPrincipal extends javax.swing.JFrame {
      public void preencherTableCliente(){
         DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
         modelo.setNumRows(0);   
-        CadastroDao cdao = new CadastroDao();
-         for (Cadastro c: cdao.read())
-           {
-                modelo.addRow(new Object[]{ 
-                    c.getCod(),
-                    c.getNome(),
-                    c.getDocumento(),
-                    c.getEndereco(),
-                    c.getTelefone(),
-                    c.getCidade()
-              }); 
-            }
+        //CadastroDao cdao = new CadastroDao();
+       //  for (Cadastro c: cdao.read())
+         //  {
+           //     modelo.addRow(new Object[]{ 
+            //        c.getCod(),
+             //       c.getNome(),
+              //      c.getDocumento(),
+               //     c.getEndereco(),
+                //    c.getTelefone(),
+                //    c.getCidade()
+            //  }); 
+           // }
         
         
         
