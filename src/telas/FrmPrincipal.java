@@ -103,7 +103,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/process64.png"))); // NOI18N
         jButton6.setToolTipText("Cadastro de Prestador de Serviços");
-        jButton6.setActionCommand("");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jButton6.setLabel("<html><center> Cadastro </center> Prestador de Serviço</html>");
         jButton6.setPreferredSize(new java.awt.Dimension(75, 75));
@@ -116,7 +115,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/trucking64.png"))); // NOI18N
         jButton5.setToolTipText("Cadastro de Fornecedores");
-        jButton5.setActionCommand("");
         jButton5.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,14 +150,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         JTScroll.setTabLayoutPolicy(javax.swing.JTabbedPane.SCROLL_TAB_LAYOUT);
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 255));
-
         JTableVisitante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "telefone", "endereco", "cidade"
+                "Código", "Nome", "Documento", "Telefone", "Endereco", "Cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -181,10 +177,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
             JTableVisitante.getColumnModel().getColumn(5).setResizable(false);
         }
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
         jButton1.setText("Editar");
 
+        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
         jButton7.setText("Excluir");
 
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
         jButton2.setText("Inserir");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -205,11 +204,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(493, Short.MAX_VALUE)
+                .addContainerGap(483, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2))
                 .addContainerGap())
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
@@ -219,14 +218,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         JTScroll.addTab("visitantes", jPanel5);
 
-        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
-
         jTableFornecedor.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "codigo", "Empresa", "CNPJ", "Responsavel", "telefone", "endereco", "cidade"
+                "Código", "Empresa", "CNPJ", "Responsável", "Telefone", "Endereco", "Cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -249,10 +246,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jTableFornecedor.getColumnModel().getColumn(6).setResizable(false);
         }
 
+        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
         jButton11.setText("Inserir");
 
+        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
         jButton12.setText("Editar");
 
+        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
         jButton13.setText("Excluir");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -273,11 +273,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(493, Short.MAX_VALUE)
+                .addContainerGap(483, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton12)
+                    .addComponent(jButton13)
+                    .addComponent(jButton11))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
@@ -287,14 +287,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         JTScroll.addTab("Fornecedores", jPanel4);
 
-        jPanel3.setBackground(new java.awt.Color(153, 153, 153));
-
         jTablePrestServico.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "Empresa", "Funcao", "telefone", "endereco", "cidade"
+                "Código", "Nome", "Documento", "Empresa", "Função", "Telefone", "Endereco", "Cidade"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -318,10 +316,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jTablePrestServico.getColumnModel().getColumn(7).setResizable(false);
         }
 
+        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
         jButton8.setText("Inserir");
 
+        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
         jButton9.setText("Editar");
 
+        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
         jButton10.setText("Excluir");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -342,11 +343,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(493, Short.MAX_VALUE)
+                .addContainerGap(483, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton9)
+                    .addComponent(jButton10)
+                    .addComponent(jButton8))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
@@ -363,11 +364,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "codigo", "nome", "documento", "Empresa", "Funcao", "telefone", "endereco", "cidade"
+                "Código", "Descrição", "Empresa", "Telefone", "Data", "Óbservações"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
