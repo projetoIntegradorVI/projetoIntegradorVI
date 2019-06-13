@@ -5,6 +5,8 @@
  */
 package telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Olivercom
@@ -31,20 +33,20 @@ public class TelaFornecedor extends javax.swing.JDialog {
 
         jPCentro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtTelCadFornecedor = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNomeCadFornecedor = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtDocCadFornecedor = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtRespCadFornecedor = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtEndCadFornecedor = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        txtCidCadFornecedor = new javax.swing.JTextField();
+        jbSalvarCadFornecedor = new javax.swing.JButton();
+        jbLimparCadFornecedor = new javax.swing.JButton();
+        jbCanCadFornecedor = new javax.swing.JButton();
         jPTitulo = new javax.swing.JPanel();
         jL_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
@@ -66,8 +68,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 31, 0, 0);
         jPCentro.add(jLabel4, gridBagConstraints);
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtTelCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtTelCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -76,7 +78,7 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField4, gridBagConstraints);
+        jPCentro.add(txtTelCadFornecedor, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -89,8 +91,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(33, 31, 0, 0);
         jPCentro.add(jLabel1, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNomeCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtNomeCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -99,7 +101,7 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(30, 10, 0, 0);
-        jPCentro.add(jTextField1, gridBagConstraints);
+        jPCentro.add(txtNomeCadFornecedor, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -112,8 +114,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 31, 0, 0);
         jPCentro.add(jLabel2, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDocCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDocCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -122,7 +124,7 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField2, gridBagConstraints);
+        jPCentro.add(txtDocCadFornecedor, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -135,8 +137,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 31, 0, 0);
         jPCentro.add(jLabel3, gridBagConstraints);
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtRespCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtRespCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -145,7 +147,7 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField3, gridBagConstraints);
+        jPCentro.add(txtRespCadFornecedor, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -158,8 +160,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 31, 0, 0);
         jPCentro.add(jLabel6, gridBagConstraints);
 
-        jTextField5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtEndCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtEndCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -168,7 +170,7 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField5, gridBagConstraints);
+        jPCentro.add(txtEndCadFornecedor, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -181,8 +183,8 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 31, 0, 0);
         jPCentro.add(jLabel7, gridBagConstraints);
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCidCadFornecedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtCidCadFornecedor.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -191,13 +193,13 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField6, gridBagConstraints);
+        jPCentro.add(txtCidCadFornecedor, gridBagConstraints);
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbSalvarCadFornecedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalvarCadFornecedor.setText("salvar");
+        jbSalvarCadFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbSalvarCadFornecedorActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -206,26 +208,36 @@ public class TelaFornecedor extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(26, 77, 27, 0);
-        jPCentro.add(jButton1, gridBagConstraints);
+        jPCentro.add(jbSalvarCadFornecedor, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("limpar");
+        jbLimparCadFornecedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbLimparCadFornecedor.setText("limpar");
+        jbLimparCadFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimparCadFornecedorActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(26, 32, 27, 0);
-        jPCentro.add(jButton2, gridBagConstraints);
+        jPCentro.add(jbLimparCadFornecedor, gridBagConstraints);
 
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("Cancelar");
+        jbCanCadFornecedor.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbCanCadFornecedor.setText("Cancelar");
+        jbCanCadFornecedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCanCadFornecedorActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 12;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(26, 34, 27, 53);
-        jPCentro.add(jButton3, gridBagConstraints);
+        jPCentro.add(jbCanCadFornecedor, gridBagConstraints);
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
 
@@ -245,10 +257,28 @@ public class TelaFornecedor extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbSalvarCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadFornecedorActionPerformed
+        teste();
+    }//GEN-LAST:event_jbSalvarCadFornecedorActionPerformed
 
+    private void jbCanCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCanCadFornecedorActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCanCadFornecedorActionPerformed
+
+    private void jbLimparCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparCadFornecedorActionPerformed
+       clean();
+    }//GEN-LAST:event_jbLimparCadFornecedorActionPerformed
+    public void clean(){
+     txtNomeCadFornecedor.setText("");
+     txtDocCadFornecedor.setText("");
+     txtRespCadFornecedor.setText("");
+     txtTelCadFornecedor.setText("");
+     txtEndCadFornecedor.setText("");
+     txtCidCadFornecedor.setText("");
+    }
+    public void teste(){
+        JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
+    }
     /**
      * @param args the command line arguments
      */
@@ -292,9 +322,6 @@ public class TelaFornecedor extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jL_img_titulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -305,11 +332,14 @@ public class TelaFornecedor extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel_titulo;
     private javax.swing.JPanel jPCentro;
     private javax.swing.JPanel jPTitulo;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JButton jbCanCadFornecedor;
+    private javax.swing.JButton jbLimparCadFornecedor;
+    private javax.swing.JButton jbSalvarCadFornecedor;
+    private javax.swing.JTextField txtCidCadFornecedor;
+    private javax.swing.JTextField txtDocCadFornecedor;
+    private javax.swing.JTextField txtEndCadFornecedor;
+    private javax.swing.JTextField txtNomeCadFornecedor;
+    private javax.swing.JTextField txtRespCadFornecedor;
+    private javax.swing.JTextField txtTelCadFornecedor;
     // End of variables declaration//GEN-END:variables
 }

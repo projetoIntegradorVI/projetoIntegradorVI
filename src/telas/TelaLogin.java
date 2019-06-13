@@ -192,6 +192,7 @@ public class TelaLogin extends javax.swing.JDialog {
         getContentPane().add(jPBaixo, java.awt.BorderLayout.PAGE_END);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_LogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_LogarActionPerformed
@@ -201,7 +202,11 @@ public class TelaLogin extends javax.swing.JDialog {
     private void jB_SairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_SairActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jB_SairActionPerformed
-
+     public void abreSistema() {
+        FrmPrincipal f = new FrmPrincipal();
+        f.setVisible(true);
+        this.dispose();
+    }
     /**
      * @param args the command line arguments
      */
@@ -265,7 +270,6 @@ public class TelaLogin extends javax.swing.JDialog {
     private javax.swing.JTextField jT_Usuario;
     // End of variables declaration//GEN-END:variables
 
-    private void abreSistema() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 }
+

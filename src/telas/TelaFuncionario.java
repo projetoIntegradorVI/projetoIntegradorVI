@@ -5,6 +5,8 @@
  */
 package telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Olivercom
@@ -31,22 +33,22 @@ public class TelaFuncionario extends javax.swing.JDialog {
 
         jPCentro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        txtFunCadFunc = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNomeCadFunc = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtDocCadFunc = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtEmpCadFunc = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txtTelCadFunc = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        txtCidCadFunc = new javax.swing.JTextField();
+        txtEndCadFunc = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jbLimparCadFunc = new javax.swing.JButton();
+        jbSalvarCadFunc = new javax.swing.JButton();
+        jbCancelacadFunc = new javax.swing.JButton();
         jPTitulo = new javax.swing.JPanel();
         jL_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
@@ -68,8 +70,13 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel4, gridBagConstraints);
 
-        jTextField4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtFunCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtFunCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtFunCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFunCadFuncActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -78,7 +85,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField4, gridBagConstraints);
+        jPCentro.add(txtFunCadFunc, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -91,8 +98,8 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(36, 47, 0, 0);
         jPCentro.add(jLabel1, gridBagConstraints);
 
-        jTextField1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtNomeCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtNomeCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -101,7 +108,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 10, 0, 0);
-        jPCentro.add(jTextField1, gridBagConstraints);
+        jPCentro.add(txtNomeCadFunc, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -114,8 +121,8 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel2, gridBagConstraints);
 
-        jTextField2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDocCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDocCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -124,7 +131,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField2, gridBagConstraints);
+        jPCentro.add(txtDocCadFunc, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -137,8 +144,8 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel3, gridBagConstraints);
 
-        jTextField3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtEmpCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtEmpCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -147,7 +154,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField3, gridBagConstraints);
+        jPCentro.add(txtEmpCadFunc, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -160,8 +167,8 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel6, gridBagConstraints);
 
-        jTextField5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField5.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtTelCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtTelCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 8;
@@ -170,7 +177,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField5, gridBagConstraints);
+        jPCentro.add(txtTelCadFunc, gridBagConstraints);
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -183,8 +190,8 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel7, gridBagConstraints);
 
-        jTextField6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField6.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtCidCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtCidCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 12;
@@ -193,10 +200,10 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField6, gridBagConstraints);
+        jPCentro.add(txtCidCadFunc, gridBagConstraints);
 
-        jTextField7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        jTextField7.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtEndCadFunc.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtEndCadFunc.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 10;
@@ -205,7 +212,7 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 228;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jTextField7, gridBagConstraints);
+        jPCentro.add(txtEndCadFunc, gridBagConstraints);
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -218,20 +225,25 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 47, 0, 0);
         jPCentro.add(jLabel8, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("Limpar");
+        jbLimparCadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbLimparCadFunc.setText("Limpar");
+        jbLimparCadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbLimparCadFuncActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 30, 38, 0);
-        jPCentro.add(jButton2, gridBagConstraints);
+        jPCentro.add(jbLimparCadFunc, gridBagConstraints);
 
-        jButton1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton1.setText("Salvar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jbSalvarCadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalvarCadFunc.setText("Salvar");
+        jbSalvarCadFunc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jbSalvarCadFuncActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -240,17 +252,22 @@ public class TelaFuncionario extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 91, 38, 0);
-        jPCentro.add(jButton1, gridBagConstraints);
+        jPCentro.add(jbSalvarCadFunc, gridBagConstraints);
 
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("Cancelar");
+        jbCancelacadFunc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbCancelacadFunc.setText("Cancelar");
+        jbCancelacadFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancelacadFuncActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 14;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 32, 38, 73);
-        jPCentro.add(jButton3, gridBagConstraints);
+        jPCentro.add(jbCancelacadFunc, gridBagConstraints);
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
 
@@ -270,10 +287,33 @@ public class TelaFuncionario extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jbSalvarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadFuncActionPerformed
+       teste();
+    }//GEN-LAST:event_jbSalvarCadFuncActionPerformed
 
+    private void txtFunCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFunCadFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFunCadFuncActionPerformed
+
+    private void jbLimparCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparCadFuncActionPerformed
+       clean();
+    }//GEN-LAST:event_jbLimparCadFuncActionPerformed
+
+    private void jbCancelacadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelacadFuncActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCancelacadFuncActionPerformed
+    public void clean(){
+     txtNomeCadFunc.setText("");
+     txtDocCadFunc.setText("");
+     txtFunCadFunc.setText("");
+     txtEmpCadFunc.setText("");
+     txtEndCadFunc.setText("");
+     txtTelCadFunc.setText("");
+     txtCidCadFunc.setText("");
+    }
+    public void teste(){
+        JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
+    }
     /**
      * @param args the command line arguments
      */
@@ -317,9 +357,6 @@ public class TelaFuncionario extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jL_img_titulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -331,12 +368,15 @@ public class TelaFuncionario extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel_titulo;
     private javax.swing.JPanel jPCentro;
     private javax.swing.JPanel jPTitulo;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JButton jbCancelacadFunc;
+    private javax.swing.JButton jbLimparCadFunc;
+    private javax.swing.JButton jbSalvarCadFunc;
+    private javax.swing.JTextField txtCidCadFunc;
+    private javax.swing.JTextField txtDocCadFunc;
+    private javax.swing.JTextField txtEmpCadFunc;
+    private javax.swing.JTextField txtEndCadFunc;
+    private javax.swing.JTextField txtFunCadFunc;
+    private javax.swing.JTextField txtNomeCadFunc;
+    private javax.swing.JTextField txtTelCadFunc;
     // End of variables declaration//GEN-END:variables
 }

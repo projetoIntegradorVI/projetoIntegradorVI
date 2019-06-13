@@ -29,21 +29,35 @@ public class TelaAjuda extends javax.swing.JDialog {
     private void initComponents() {
 
         jPCentro = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
         jPTitulo = new javax.swing.JPanel();
         jLabel_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
+        jButton1.setText("Sair");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPCentroLayout = new javax.swing.GroupLayout(jPCentro);
         jPCentro.setLayout(jPCentroLayout);
         jPCentroLayout.setHorizontalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 724, Short.MAX_VALUE)
+            .addGroup(jPCentroLayout.createSequentialGroup()
+                .addGap(103, 103, 103)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(123, Short.MAX_VALUE))
         );
         jPCentroLayout.setVerticalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 502, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
+                .addContainerGap(207, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(28, 28, 28))
         );
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
@@ -61,7 +75,12 @@ public class TelaAjuda extends javax.swing.JDialog {
         getContentPane().add(jPTitulo, java.awt.BorderLayout.PAGE_START);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -106,6 +125,7 @@ public class TelaAjuda extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel_img_titulo;
     private javax.swing.JLabel jLabel_titulo;
     private javax.swing.JPanel jPCentro;

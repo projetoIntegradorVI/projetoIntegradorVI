@@ -5,6 +5,8 @@
  */
 package telas;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Olivercom
@@ -31,20 +33,20 @@ public class TelaOrcamento extends javax.swing.JDialog {
 
         jPCentro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtTelCli = new javax.swing.JTextField();
+        txtDataCadOrcamento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtNomeCli = new javax.swing.JTextField();
+        txtDiscriOrcamento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtEndCli = new javax.swing.JTextField();
+        txtTelCadOrcamento = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        btnCadCli = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jComEmpCadOrcamento = new javax.swing.JComboBox<>();
+        jbSalvarOrcamento = new javax.swing.JButton();
+        jblimparOrcamento = new javax.swing.JButton();
+        jbCancOrcamento = new javax.swing.JButton();
         jP_text_area = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        txtAreaObsCadOrcamento = new javax.swing.JTextArea();
         jTitulo = new javax.swing.JPanel();
         jLabel_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
@@ -66,8 +68,8 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 45, 0, 0);
         jPCentro.add(jLabel4, gridBagConstraints);
 
-        txtTelCli.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtTelCli.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDataCadOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDataCadOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 6;
@@ -76,7 +78,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 273;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(txtTelCli, gridBagConstraints);
+        jPCentro.add(txtDataCadOrcamento, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -89,8 +91,8 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(36, 45, 0, 0);
         jPCentro.add(jLabel1, gridBagConstraints);
 
-        txtNomeCli.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtNomeCli.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtDiscriOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDiscriOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 0;
@@ -99,7 +101,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 273;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(33, 10, 0, 0);
-        jPCentro.add(txtNomeCli, gridBagConstraints);
+        jPCentro.add(txtDiscriOrcamento, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -123,8 +125,8 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(14, 45, 0, 0);
         jPCentro.add(jLabel3, gridBagConstraints);
 
-        txtEndCli.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtEndCli.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        txtTelCadOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtTelCadOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 4;
@@ -133,7 +135,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 273;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(txtEndCli, gridBagConstraints);
+        jPCentro.add(txtTelCadOrcamento, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
@@ -146,7 +148,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.insets = new java.awt.Insets(8, 45, 0, 0);
         jPCentro.add(jLabel6, gridBagConstraints);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComEmpCadOrcamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 1;
         gridBagConstraints.gridy = 2;
@@ -155,13 +157,13 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.ipadx = 222;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jComboBox1, gridBagConstraints);
+        jPCentro.add(jComEmpCadOrcamento, gridBagConstraints);
 
-        btnCadCli.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnCadCli.setText("Salvar");
-        btnCadCli.addActionListener(new java.awt.event.ActionListener() {
+        jbSalvarOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbSalvarOrcamento.setText("Salvar");
+        jbSalvarOrcamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCadCliActionPerformed(evt);
+                jbSalvarOrcamentoActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -170,30 +172,40 @@ public class TelaOrcamento extends javax.swing.JDialog {
         gridBagConstraints.gridwidth = 2;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 117, 33, 0);
-        jPCentro.add(btnCadCli, gridBagConstraints);
+        jPCentro.add(jbSalvarOrcamento, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("Limpar");
+        jblimparOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jblimparOrcamento.setText("Limpar");
+        jblimparOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimparOrcamentoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 2;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 37, 33, 0);
-        jPCentro.add(jButton2, gridBagConstraints);
+        jPCentro.add(jblimparOrcamento, gridBagConstraints);
 
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("Cancelar");
+        jbCancOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbCancOrcamento.setText("Cancelar");
+        jbCancOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCancOrcamentoActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 3;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.gridwidth = 4;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(11, 37, 33, 0);
-        jPCentro.add(jButton3, gridBagConstraints);
+        jPCentro.add(jbCancOrcamento, gridBagConstraints);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        txtAreaObsCadOrcamento.setColumns(20);
+        txtAreaObsCadOrcamento.setRows(5);
+        jScrollPane1.setViewportView(txtAreaObsCadOrcamento);
 
         javax.swing.GroupLayout jP_text_areaLayout = new javax.swing.GroupLayout(jP_text_area);
         jP_text_area.setLayout(jP_text_areaLayout);
@@ -237,13 +249,31 @@ public class TelaOrcamento extends javax.swing.JDialog {
         getContentPane().add(jTitulo, java.awt.BorderLayout.PAGE_START);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCliActionPerformed
+    private void jbSalvarOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarOrcamentoActionPerformed
+    teste();
+       
+    }//GEN-LAST:event_jbSalvarOrcamentoActionPerformed
 
-        //  f.preencherTableCliente();
-    }//GEN-LAST:event_btnCadCliActionPerformed
+    private void jbCancOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancOrcamentoActionPerformed
+       this.dispose();
+    }//GEN-LAST:event_jbCancOrcamentoActionPerformed
 
+    private void jblimparOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimparOrcamentoActionPerformed
+        clean();
+    }//GEN-LAST:event_jblimparOrcamentoActionPerformed
+    public void clean(){
+     txtDiscriOrcamento.setText("");
+     txtDataCadOrcamento.setText("");
+     txtTelCadOrcamento.setText("");
+     txtAreaObsCadOrcamento.setText("");
+     jComEmpCadOrcamento.getModel().setSelectedItem("");
+    }
+    public void teste(){
+        JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
+    }
     /**
      * @param args the command line arguments
      */
@@ -287,10 +317,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCadCli;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComEmpCadOrcamento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -301,10 +328,13 @@ public class TelaOrcamento extends javax.swing.JDialog {
     private javax.swing.JPanel jPCentro;
     private javax.swing.JPanel jP_text_area;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JPanel jTitulo;
-    private javax.swing.JTextField txtEndCli;
-    private javax.swing.JTextField txtNomeCli;
-    private javax.swing.JTextField txtTelCli;
+    private javax.swing.JButton jbCancOrcamento;
+    private javax.swing.JButton jbSalvarOrcamento;
+    private javax.swing.JButton jblimparOrcamento;
+    private javax.swing.JTextArea txtAreaObsCadOrcamento;
+    private javax.swing.JTextField txtDataCadOrcamento;
+    private javax.swing.JTextField txtDiscriOrcamento;
+    private javax.swing.JTextField txtTelCadOrcamento;
     // End of variables declaration//GEN-END:variables
 }

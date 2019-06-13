@@ -23,9 +23,7 @@ FrmPrincipal f = new FrmPrincipal();
         
     }
 
-    public TelaCadastro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -49,8 +47,8 @@ FrmPrincipal f = new FrmPrincipal();
         jLabel6 = new javax.swing.JLabel();
         txtCidCli = new javax.swing.JTextField();
         btnCadCli = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jblimparCadCliente = new javax.swing.JButton();
+        jbCanCadCliente = new javax.swing.JButton();
         jPTitulo = new javax.swing.JPanel();
         jL_img_Titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
@@ -196,20 +194,25 @@ FrmPrincipal f = new FrmPrincipal();
         gridBagConstraints.insets = new java.awt.Insets(28, 49, 25, 0);
         jPCentro.add(btnCadCli, gridBagConstraints);
 
-        jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton2.setText("Limpar");
+        jblimparCadCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jblimparCadCliente.setText("Limpar");
+        jblimparCadCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jblimparCadClienteActionPerformed(evt);
+            }
+        });
         gridBagConstraints = new java.awt.GridBagConstraints();
         gridBagConstraints.gridx = 4;
         gridBagConstraints.gridy = 10;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(28, 44, 25, 0);
-        jPCentro.add(jButton2, gridBagConstraints);
+        jPCentro.add(jblimparCadCliente, gridBagConstraints);
 
-        jButton3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        jButton3.setText("Cancelar");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jbCanCadCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jbCanCadCliente.setText("Cancelar");
+        jbCanCadCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jbCanCadClienteActionPerformed(evt);
             }
         });
         gridBagConstraints = new java.awt.GridBagConstraints();
@@ -218,7 +221,7 @@ FrmPrincipal f = new FrmPrincipal();
         gridBagConstraints.gridwidth = 5;
         gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
         gridBagConstraints.insets = new java.awt.Insets(28, 47, 25, 44);
-        jPCentro.add(jButton3, gridBagConstraints);
+        jPCentro.add(jbCanCadCliente, gridBagConstraints);
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
 
@@ -251,10 +254,20 @@ FrmPrincipal f = new FrmPrincipal();
         f.preencherTableCliente();
     }//GEN-LAST:event_btnCadCliActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void jbCanCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCanCadClienteActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCanCadClienteActionPerformed
 
+    private void jblimparCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jblimparCadClienteActionPerformed
+        clean();
+    }//GEN-LAST:event_jblimparCadClienteActionPerformed
+    public void clean(){
+     txtCidCli.setText("");
+     txtDocCli.setText("");
+     txtEndCli.setText("");
+     txtNomeCli.setText("");
+     txtTelCli.setText("");
+    }
     /**
      * @param args the command line arguments
      */
@@ -300,8 +313,6 @@ FrmPrincipal f = new FrmPrincipal();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCadCli;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jL_img_Titulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -311,6 +322,8 @@ FrmPrincipal f = new FrmPrincipal();
     private javax.swing.JLabel jLabel_titulo;
     private javax.swing.JPanel jPCentro;
     private javax.swing.JPanel jPTitulo;
+    private javax.swing.JButton jbCanCadCliente;
+    private javax.swing.JButton jblimparCadCliente;
     private javax.swing.JTextField txtCidCli;
     private javax.swing.JTextField txtDocCli;
     private javax.swing.JTextField txtEndCli;

@@ -7,6 +7,7 @@ package telas;
 
 import controle.Cadastro;
 import controle.Views;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.CadastroDao;
 
@@ -45,28 +46,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane8 = new javax.swing.JScrollPane();
         JTableVisitante = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jbEditCadCli = new javax.swing.JButton();
+        jbExcCadCli = new javax.swing.JButton();
+        jbutonInserirCad = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTableFornecedor = new javax.swing.JTable();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        jbInserirFornec = new javax.swing.JButton();
+        jbEditFornec = new javax.swing.JButton();
+        jbExcFornec = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTablePrestServico = new javax.swing.JTable();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        jbInsFunc = new javax.swing.JButton();
+        jbEditFunc = new javax.swing.JButton();
+        jbExcFunc = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
         jTablePrestServico1 = new javax.swing.JTable();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton17 = new javax.swing.JButton();
+        jbInsOrcamento = new javax.swing.JButton();
+        jbEditOrcamento = new javax.swing.JButton();
+        jbExcOrcamento = new javax.swing.JButton();
         jP_Topo = new javax.swing.JPanel();
         jP_Baixo = new javax.swing.JPanel();
         jL_descricao = new javax.swing.JLabel();
@@ -107,7 +108,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/process64.png"))); // NOI18N
         jButton6.setToolTipText("Cadastro de Prestador de Serviços");
         jButton6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jButton6.setLabel("<html><center> Cadastro </center> Prestador de Serviço</html>");
         jButton6.setPreferredSize(new java.awt.Dimension(75, 75));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,14 +180,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
             JTableVisitante.getColumnModel().getColumn(5).setResizable(false);
         }
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
-        jButton1.setText("Editar");
+        jbEditCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
+        jbEditCadCli.setText("Editar");
+        jbEditCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditCadCliActionPerformed(evt);
+            }
+        });
 
-        jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
-        jButton7.setText("Excluir");
+        jbExcCadCli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
+        jbExcCadCli.setText("Excluir");
+        jbExcCadCli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcCadCliActionPerformed(evt);
+            }
+        });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
-        jButton2.setText("Inserir");
+        jbutonInserirCad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
+        jbutonInserirCad.setText("Inserir");
+        jbutonInserirCad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbutonInserirCadActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -195,11 +210,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbutonInserirCad, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEditCadCli, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbExcCadCli, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(421, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE))
@@ -207,16 +222,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(479, Short.MAX_VALUE)
+                .addContainerGap(469, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
+                    .addComponent(jbEditCadCli, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbExcCadCli, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jbutonInserirCad))
                 .addContainerGap())
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 104, Short.MAX_VALUE)))
+                    .addGap(0, 94, Short.MAX_VALUE)))
         );
 
         JTScroll.addTab("visitantes", jPanel5);
@@ -249,14 +264,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jTableFornecedor.getColumnModel().getColumn(6).setResizable(false);
         }
 
-        jButton11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
-        jButton11.setText("Inserir");
+        jbInserirFornec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
+        jbInserirFornec.setText("Inserir");
+        jbInserirFornec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInserirFornecActionPerformed(evt);
+            }
+        });
 
-        jButton12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
-        jButton12.setText("Editar");
+        jbEditFornec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
+        jbEditFornec.setText("Editar");
+        jbEditFornec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditFornecActionPerformed(evt);
+            }
+        });
 
-        jButton13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
-        jButton13.setText("Excluir");
+        jbExcFornec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
+        jbExcFornec.setText("Excluir");
+        jbExcFornec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcFornecActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -264,11 +294,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbInserirFornec, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEditFornec, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbExcFornec, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(421, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE))
@@ -276,16 +306,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(479, Short.MAX_VALUE)
+                .addContainerGap(469, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13)
-                    .addComponent(jButton11))
+                    .addComponent(jbEditFornec)
+                    .addComponent(jbExcFornec)
+                    .addComponent(jbInserirFornec))
                 .addContainerGap())
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 104, Short.MAX_VALUE)))
+                    .addGap(0, 94, Short.MAX_VALUE)))
         );
 
         JTScroll.addTab("Fornecedores", jPanel4);
@@ -306,6 +336,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTablePrestServico.getTableHeader().setReorderingAllowed(false);
         jScrollPane9.setViewportView(jTablePrestServico);
         if (jTablePrestServico.getColumnModel().getColumnCount() > 0) {
             jTablePrestServico.getColumnModel().getColumn(0).setResizable(false);
@@ -319,14 +350,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jTablePrestServico.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
-        jButton8.setText("Inserir");
+        jbInsFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
+        jbInsFunc.setText("Inserir");
+        jbInsFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInsFuncActionPerformed(evt);
+            }
+        });
 
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
-        jButton9.setText("Editar");
+        jbEditFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
+        jbEditFunc.setText("Editar");
+        jbEditFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditFuncActionPerformed(evt);
+            }
+        });
 
-        jButton10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
-        jButton10.setText("Excluir");
+        jbExcFunc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
+        jbExcFunc.setText("Excluir");
+        jbExcFunc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcFuncActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -334,11 +380,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(90, 90, 90)
-                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbInsFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEditFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbExcFunc, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(421, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 906, Short.MAX_VALUE))
@@ -346,16 +392,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(479, Short.MAX_VALUE)
+                .addContainerGap(469, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton10)
-                    .addComponent(jButton8))
+                    .addComponent(jbEditFunc)
+                    .addComponent(jbExcFunc)
+                    .addComponent(jbInsFunc))
                 .addContainerGap())
             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel3Layout.createSequentialGroup()
                     .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 104, Short.MAX_VALUE)))
+                    .addGap(0, 94, Short.MAX_VALUE)))
         );
 
         JTScroll.addTab("Prestador Serviço", jPanel3);
@@ -367,11 +413,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Código", "Descrição", "Empresa", "Telefone", "Data", "Óbservações"
+                "Código", "Descrição", "Empresa", "Telefone", "Data", "Observações"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -387,35 +433,48 @@ public class FrmPrincipal extends javax.swing.JFrame {
             jTablePrestServico1.getColumnModel().getColumn(3).setResizable(false);
             jTablePrestServico1.getColumnModel().getColumn(4).setResizable(false);
             jTablePrestServico1.getColumnModel().getColumn(5).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(6).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(7).setResizable(false);
         }
 
-        jButton15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
-        jButton15.setText("Inserir");
+        jbInsOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
+        jbInsOrcamento.setText("Inserir");
+        jbInsOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbInsOrcamentoActionPerformed(evt);
+            }
+        });
 
-        jButton16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
-        jButton16.setText("Editar");
+        jbEditOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/Edit_file32.png"))); // NOI18N
+        jbEditOrcamento.setText("Editar");
+        jbEditOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditOrcamentoActionPerformed(evt);
+            }
+        });
 
-        jButton17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
-        jButton17.setText("Excluir");
+        jbExcOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/delete_file32.png"))); // NOI18N
+        jbExcOrcamento.setText("Excluir");
+        jbExcOrcamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbExcOrcamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 835, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 65, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(120, 120, 120)
+                .addComponent(jbInsOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
-                .addComponent(jButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbEditOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbExcOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -426,17 +485,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
                         .addGap(280, 280, 280)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton16)
-                    .addComponent(jButton17)
-                    .addComponent(jButton15))
-                .addGap(28, 28, 28))
+                    .addComponent(jbEditOrcamento)
+                    .addComponent(jbExcOrcamento)
+                    .addComponent(jbInsOrcamento))
+                .addContainerGap())
         );
 
         JTScroll.addTab("Orçamentos", jPanel6);
 
-        PanelConsulta.add(JTScroll, java.awt.BorderLayout.CENTER);
+        PanelConsulta.add(JTScroll, java.awt.BorderLayout.PAGE_START);
 
         getContentPane().add(PanelConsulta, java.awt.BorderLayout.CENTER);
 
@@ -499,6 +558,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Consulta cliente");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuBar1.add(jMenu1);
@@ -534,6 +598,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenu4.add(jMenuItem4);
 
         jMenuItem5.setText("consulta");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
         jMenu4.add(jMenuItem5);
 
         jMenuBar1.add(jMenu4);
@@ -543,11 +612,21 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem7.setText(".....");
         jM_Ajuda.add(jMenuItem7);
 
-        jMenuItem8.setText("...");
+        jMenuItem8.setText("Ajuda");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem8ActionPerformed(evt);
+            }
+        });
         jM_Ajuda.add(jMenuItem8);
         jM_Ajuda.add(jSeparator1);
 
         jMenu_Sobre.setText("Sobre...");
+        jMenu_Sobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu_SobreActionPerformed(evt);
+            }
+        });
         jM_Ajuda.add(jMenu_Sobre);
 
         jMenuBar1.add(jM_Ajuda);
@@ -559,7 +638,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
+        panelConsultaAberto();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -569,12 +648,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        chamaTelaFuncionario();
         panelConsultaOculto();
+        chamaTelaFuncionario();
+        
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-
+        panelConsultaOculto();
+        chamaTelaCadastro();
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
@@ -597,24 +679,104 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      
+      chamaTelaOrcamento();
+      panelConsultaOculto();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
          panelConsultaAberto();
        preencherTableCliente();
     }//GEN-LAST:event_jButton14ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+         panelConsultaAberto();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        panelConsultaAberto();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenu_SobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_SobreActionPerformed
+        chamaTelaAbout();
+    }//GEN-LAST:event_jMenu_SobreActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        chamaTelaAjuda();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jbutonInserirCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutonInserirCadActionPerformed
+        panelConsultaOculto();
+        chamaTelaCadastro();
+    }//GEN-LAST:event_jbutonInserirCadActionPerformed
+
+    private void jbEditCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditCadCliActionPerformed
+        teste();
+    }//GEN-LAST:event_jbEditCadCliActionPerformed
+
+    private void jbExcCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcCadCliActionPerformed
+        teste();
+    }//GEN-LAST:event_jbExcCadCliActionPerformed
+
+    private void jbEditFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFornecActionPerformed
+        teste();
+    }//GEN-LAST:event_jbEditFornecActionPerformed
+
+    private void jbExcFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFornecActionPerformed
+        teste();
+    }//GEN-LAST:event_jbExcFornecActionPerformed
+
+    private void jbInserirFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInserirFornecActionPerformed
+        panelConsultaOculto();
+        chamaTelaFornecedor();
+    }//GEN-LAST:event_jbInserirFornecActionPerformed
+
+    private void jbInsFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsFuncActionPerformed
+        panelConsultaOculto();
+        chamaTelaFuncionario();
+    }//GEN-LAST:event_jbInsFuncActionPerformed
+
+    private void jbEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFuncActionPerformed
+       teste();
+    }//GEN-LAST:event_jbEditFuncActionPerformed
+
+    private void jbExcFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFuncActionPerformed
+       teste();
+    }//GEN-LAST:event_jbExcFuncActionPerformed
+
+    private void jbInsOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsOrcamentoActionPerformed
+        panelConsultaOculto();
+        chamaTelaOrcamento();
+    }//GEN-LAST:event_jbInsOrcamentoActionPerformed
+
+    private void jbEditOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditOrcamentoActionPerformed
+        teste();
+    }//GEN-LAST:event_jbEditOrcamentoActionPerformed
+
+    private void jbExcOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcOrcamentoActionPerformed
+        teste();
+    }//GEN-LAST:event_jbExcOrcamentoActionPerformed
     public void chamaTelaCadastro() {
         TelaCadastro tc = new TelaCadastro(this, rootPaneCheckingEnabled);
         tc.setVisible(true);
     }
-
+    public void teste(){
+        JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
+    }
+    public void chamaTelaAjuda(){
+        TelaAjuda taj= new TelaAjuda(this, rootPaneCheckingEnabled);
+        taj.setVisible(true);
+    }
+    public void chamaTelaAbout(){
+        TelaAbout ta = new TelaAbout(this, rootPaneCheckingEnabled);
+        ta.setVisible(true);
+    }
     public void chamaTelaFornecedor() {
         TelaFornecedor tf = new TelaFornecedor(this, rootPaneCheckingEnabled);
         tf.setVisible(true);
     }
     public void chamaTelaOrcamento(){
         TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
+        to.setVisible(true);
     }
 
     public void chamaTelaFuncionario() {
@@ -631,7 +793,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
      public void preencherTableCliente(){
         DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
         modelo.setNumRows(0);   
-         CadastroDao cdao = new CadastroDao();
+        CadastroDao cdao = new CadastroDao();
          for (Cadastro c: cdao.read())
            {
                 modelo.addRow(new Object[]{ 
@@ -687,23 +849,11 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTabbedPane JTScroll;
     private javax.swing.JTable JTableVisitante;
     private javax.swing.JPanel PanelConsulta;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jL_descricao;
     private javax.swing.JLabel jL_msg_status;
     private javax.swing.JLabel jL_user_log;
@@ -738,5 +888,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JTable jTableFornecedor;
     private javax.swing.JTable jTablePrestServico;
     private javax.swing.JTable jTablePrestServico1;
+    private javax.swing.JButton jbEditCadCli;
+    private javax.swing.JButton jbEditFornec;
+    private javax.swing.JButton jbEditFunc;
+    private javax.swing.JButton jbEditOrcamento;
+    private javax.swing.JButton jbExcCadCli;
+    private javax.swing.JButton jbExcFornec;
+    private javax.swing.JButton jbExcFunc;
+    private javax.swing.JButton jbExcOrcamento;
+    private javax.swing.JButton jbInsFunc;
+    private javax.swing.JButton jbInsOrcamento;
+    private javax.swing.JButton jbInserirFornec;
+    private javax.swing.JButton jbutonInserirCad;
     // End of variables declaration//GEN-END:variables
 }

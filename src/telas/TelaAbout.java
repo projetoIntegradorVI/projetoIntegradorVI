@@ -70,28 +70,29 @@ public class TelaAbout extends javax.swing.JDialog {
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 888, Short.MAX_VALUE)
                 .addContainerGap())
-            .addGroup(jPCentroLayout.createSequentialGroup()
-                .addGap(414, 414, 414)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jB_fechar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(405, 405, 405))
         );
         jPCentroLayout.setVerticalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGap(57, 57, 57)
                 .addComponent(jB_fechar)
-                .addGap(19, 19, 19))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jB_fecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_fecharActionPerformed
-        // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jB_fecharActionPerformed
 
     /**
