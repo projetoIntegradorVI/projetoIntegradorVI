@@ -29,35 +29,45 @@ public class TelaAjuda extends javax.swing.JDialog {
     private void initComponents() {
 
         jPCentro = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jB_sair = new javax.swing.JButton();
+        jLabel_img_ajuda = new javax.swing.JLabel();
         jPTitulo = new javax.swing.JPanel();
         jLabel_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jButton1.setText("Sair");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jB_sair.setText("Sair");
+        jB_sair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jB_sairActionPerformed(evt);
             }
         });
+
+        jLabel_img_ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ajuda_Principal_r.png"))); // NOI18N
 
         javax.swing.GroupLayout jPCentroLayout = new javax.swing.GroupLayout(jPCentro);
         jPCentro.setLayout(jPCentroLayout);
         jPCentroLayout.setHorizontalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPCentroLayout.createSequentialGroup()
-                .addGap(103, 103, 103)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jB_sair, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel_img_ajuda)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         jPCentroLayout.setVerticalGroup(
             jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPCentroLayout.createSequentialGroup()
-                .addContainerGap(207, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(28, 28, 28))
+                .addContainerGap()
+                .addComponent(jLabel_img_ajuda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(jB_sair)
+                .addContainerGap())
         );
 
         getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
@@ -78,9 +88,9 @@ public class TelaAjuda extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jB_sairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_sairActionPerformed
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jB_sairActionPerformed
 
     /**
      * @param args the command line arguments
@@ -125,7 +135,8 @@ public class TelaAjuda extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jB_sair;
+    private javax.swing.JLabel jLabel_img_ajuda;
     private javax.swing.JLabel jLabel_img_titulo;
     private javax.swing.JLabel jLabel_titulo;
     private javax.swing.JPanel jPCentro;

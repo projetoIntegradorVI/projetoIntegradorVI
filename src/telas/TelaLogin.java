@@ -186,7 +186,7 @@ public class TelaLogin extends javax.swing.JDialog {
         jLEsquerda.setText("Status: ");
         jPBaixo.add(jLEsquerda, java.awt.BorderLayout.WEST);
 
-        jLCentro_msg.setText("Login OK");
+        jLCentro_msg.setText("Login OK - PRESSIONE LOGAR !!");
         jPBaixo.add(jLCentro_msg, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPBaixo, java.awt.BorderLayout.PAGE_END);

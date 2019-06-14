@@ -7,6 +7,7 @@ package telas;
 
 import controle.Cadastro;
 import controle.Views;
+import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.CadastroDao;
@@ -24,6 +25,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         initComponents();
        panelConsultaOculto();
        preencherTableCliente();
+       setIconefrmprincipal(); //Altera o icone da aplicação
     }
 
     /**
@@ -75,18 +77,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jL_user_log = new javax.swing.JLabel();
         jP_Direita = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        jMenu1_Visitante = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu2_Profissional = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
+        jMenu4_Fornecesor = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenu5_Options = new javax.swing.JMenu();
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jM_Ajuda = new javax.swing.JMenu();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenu_Ajuda = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenu_Sobre = new javax.swing.JMenuItem();
 
@@ -547,78 +550,91 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.setBackground(new java.awt.Color(204, 204, 204));
 
-        jMenu1.setText("Clientes");
+        jMenu1_Visitante.setText("Visitantes");
 
-        jMenuItem1.setText("Cadastro de Clientes");
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/visitor-icon-6_16.png"))); // NOI18N
+        jMenuItem1.setText("Cadastro de Visitantes");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        jMenu1_Visitante.add(jMenuItem1);
 
-        jMenuItem2.setText("Consulta cliente");
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/consulta16.png"))); // NOI18N
+        jMenuItem2.setText("Consulta Visitantes");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        jMenu1_Visitante.add(jMenuItem2);
 
-        jMenuBar1.add(jMenu1);
+        jMenuBar1.add(jMenu1_Visitante);
 
-        jMenu2.setText("profissionais");
+        jMenu2_Profissional.setText("Profissionais");
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/process16.png"))); // NOI18N
         jMenuItem6.setText("Cadastro de Profissional");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem6ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem6);
+        jMenu2_Profissional.add(jMenuItem6);
 
-        jMenuItem3.setText("consulta de profissional");
+        jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/consulta16.png"))); // NOI18N
+        jMenuItem3.setText("Consulta de Profissional");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu2_Profissional.add(jMenuItem3);
 
-        jMenuBar1.add(jMenu2);
+        jMenuBar1.add(jMenu2_Profissional);
 
-        jMenu4.setText("Fornecedor");
+        jMenu4_Fornecesor.setText("Fornecedor");
 
-        jMenuItem4.setText("cadastro de fornecedor");
+        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/trucking16.png"))); // NOI18N
+        jMenuItem4.setText("Cadastro de Fornecedor");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem4);
+        jMenu4_Fornecesor.add(jMenuItem4);
 
-        jMenuItem5.setText("consulta");
+        jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/consulta16.png"))); // NOI18N
+        jMenuItem5.setText("Consulta");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem5);
+        jMenu4_Fornecesor.add(jMenuItem5);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar1.add(jMenu4_Fornecesor);
+
+        jMenu5_Options.setText("Opções");
+        jMenu5_Options.setEnabled(false);
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("Menu Lateral");
+        jMenu5_Options.add(jCheckBoxMenuItem1);
+
+        jMenuBar1.add(jMenu5_Options);
 
         jM_Ajuda.setText("Ajuda");
 
-        jMenuItem7.setText(".....");
-        jM_Ajuda.add(jMenuItem7);
-
-        jMenuItem8.setText("Ajuda");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        jMenu_Ajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/help16.png"))); // NOI18N
+        jMenu_Ajuda.setText("Ajuda");
+        jMenu_Ajuda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                jMenu_AjudaActionPerformed(evt);
             }
         });
-        jM_Ajuda.add(jMenuItem8);
+        jM_Ajuda.add(jMenu_Ajuda);
         jM_Ajuda.add(jSeparator1);
 
         jMenu_Sobre.setText("Sobre...");
@@ -700,9 +716,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         chamaTelaAbout();
     }//GEN-LAST:event_jMenu_SobreActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void jMenu_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_AjudaActionPerformed
         chamaTelaAjuda();
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_jMenu_AjudaActionPerformed
 
     private void jbutonInserirCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutonInserirCadActionPerformed
         panelConsultaOculto();
@@ -809,7 +825,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
         
         
      }
-
+     
+    private void setIconefrmprincipal() {  //altera o icone do jform principal
+        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/app_logo_cityscape16.png")));  //opção 1
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/logotipo_base16.jpg"))); //opção 2
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -841,6 +862,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmPrincipal().setVisible(true);
+                
             }
         });
     }
@@ -854,13 +876,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jL_descricao;
     private javax.swing.JLabel jL_msg_status;
     private javax.swing.JLabel jL_user_log;
     private javax.swing.JMenu jM_Ajuda;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu1_Visitante;
+    private javax.swing.JMenu jMenu2_Profissional;
+    private javax.swing.JMenu jMenu4_Fornecesor;
+    private javax.swing.JMenu jMenu5_Options;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -868,8 +892,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenu_Ajuda;
     private javax.swing.JMenuItem jMenu_Sobre;
     private javax.swing.JPanel jP_Baixo;
     private javax.swing.JPanel jP_Direita;
@@ -901,4 +924,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbInserirFornec;
     private javax.swing.JButton jbutonInserirCad;
     // End of variables declaration//GEN-END:variables
+
+
 }
