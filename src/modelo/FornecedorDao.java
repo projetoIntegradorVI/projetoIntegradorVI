@@ -4,39 +4,28 @@
  * and open the template in the editor.
  */
 package modelo;
-import controle.Cadastro;
-import conexao.ConectaBanco;
-import java.awt.Component;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import java.awt.Component;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
+import conexao.ConectaBanco;
+import controle.Cadastro;
+import java.awt.Component;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Olivercom
  */
-public class CadastroDao {
-
-    public CadastroDao() {
+public class FornecedorDao {
+     public FornecedorDao() {
     }
-    public void inserir(Cadastro c ) {
+     public void inserir(Cadastro c ) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
 
@@ -101,7 +90,7 @@ public class CadastroDao {
         ArrayList clientes = new ArrayList();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM clientes order by idcli");
+            stmt = con.prepareStatement("SELECT * FROM clientes");
             rs = stmt.executeQuery();
 
             while(rs.next()) {

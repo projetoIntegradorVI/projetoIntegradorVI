@@ -6,11 +6,16 @@
 package telas;
 
 import controle.Cadastro;
-import controle.Views;
+import controle.Funcionario;
+import controle.Orcamento;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.CadastroDao;
+import modelo.FuncionarioDao;
+import modelo.OrcamentoDao;
 
 /**
  *
@@ -25,6 +30,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         initComponents();
        panelConsultaOculto();
        preencherTableCliente();
+       preencherTableFunc();
        setIconefrmprincipal(); //Altera o icone da aplicação
     }
 
@@ -66,7 +72,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTablePrestServico1 = new javax.swing.JTable();
+        jTableOrcamento = new javax.swing.JTable();
         jbInsOrcamento = new javax.swing.JButton();
         jbEditOrcamento = new javax.swing.JButton();
         jbExcOrcamento = new javax.swing.JButton();
@@ -411,7 +417,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTablePrestServico1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableOrcamento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -427,15 +433,15 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane10.setViewportView(jTablePrestServico1);
-        if (jTablePrestServico1.getColumnModel().getColumnCount() > 0) {
-            jTablePrestServico1.getColumnModel().getColumn(0).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(0).setPreferredWidth(5);
-            jTablePrestServico1.getColumnModel().getColumn(1).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(2).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(3).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(4).setResizable(false);
-            jTablePrestServico1.getColumnModel().getColumn(5).setResizable(false);
+        jScrollPane10.setViewportView(jTableOrcamento);
+        if (jTableOrcamento.getColumnModel().getColumnCount() > 0) {
+            jTableOrcamento.getColumnModel().getColumn(0).setResizable(false);
+            jTableOrcamento.getColumnModel().getColumn(0).setPreferredWidth(5);
+            jTableOrcamento.getColumnModel().getColumn(1).setResizable(false);
+            jTableOrcamento.getColumnModel().getColumn(2).setResizable(false);
+            jTableOrcamento.getColumnModel().getColumn(3).setResizable(false);
+            jTableOrcamento.getColumnModel().getColumn(4).setResizable(false);
+            jTableOrcamento.getColumnModel().getColumn(5).setResizable(false);
         }
 
         jbInsOrcamento.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icones/add_file32.png"))); // NOI18N
@@ -655,6 +661,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         panelConsultaAberto();
+        JTScroll.setSelectedIndex(2);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -706,10 +713,12 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
          panelConsultaAberto();
+         JTScroll.setSelectedIndex(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         panelConsultaAberto();
+        JTScroll.setSelectedIndex(1);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenu_SobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_SobreActionPerformed
@@ -726,11 +735,29 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbutonInserirCadActionPerformed
 
     private void jbEditCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditCadCliActionPerformed
-        teste();
+        
+        Cadastro cad = new Cadastro();
+        int linha = JTableVisitante.getSelectedRow();
+        if(linha > 0){
+        DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
+        cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+        cad.setNome(modelo.getValueAt(linha, 1).toString());
+        cad.setDocumento(modelo.getValueAt(linha, 2).toString());
+        cad.setEndereco(modelo.getValueAt(linha, 3).toString());
+        cad.setTelefone(modelo.getValueAt(linha, 4).toString());
+        cad.setCidade(modelo.getValueAt(linha, 5).toString());    
+        TelaCadastro tl = new TelaCadastro(cad);
+        tl.setVisible(true);
+        }else {
+                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela cliente", HEIGHT);
+               }
+     
     }//GEN-LAST:event_jbEditCadCliActionPerformed
 
     private void jbExcCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcCadCliActionPerformed
-        teste();
+        CadastroDao cd = new CadastroDao();       
+        JOptionPane.showMessageDialog(null, "id pras excluir" +selecaoTabela());
+        cd.deletar(selecaoTabela());
     }//GEN-LAST:event_jbExcCadCliActionPerformed
 
     private void jbEditFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFornecActionPerformed
@@ -752,11 +779,43 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jbInsFuncActionPerformed
 
     private void jbEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFuncActionPerformed
-       teste();
+       Funcionario f = new Funcionario();
+        int linha = jTablePrestServico.getSelectedRow();
+        JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha"+linha, "tabela cliente", HEIGHT);
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
+        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+        f.setNomeFunc(modelo.getValueAt(linha, 1).toString());
+        f.setDocumento(modelo.getValueAt(linha, 2).toString());
+        f.setEmpresa(modelo.getValueAt(linha, 3).toString()); 
+        f.setFuncao(modelo.getValueAt(linha, 4).toString()); 
+        f.setTelefone(modelo.getValueAt(linha, 5).toString());
+        f.setEndereco(modelo.getValueAt(linha, 6).toString());
+        f.setCidade(modelo.getValueAt(linha, 7).toString());    
+        TelaFuncionario tl = new TelaFuncionario(f);
+        tl.setVisible(true);
+        }else {
+                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela cliente", HEIGHT);
+               }
+     
+    
+       
+       
+       
     }//GEN-LAST:event_jbEditFuncActionPerformed
 
     private void jbExcFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFuncActionPerformed
-       teste();
+      FuncionarioDao fao = new FuncionarioDao();
+        String n = null;
+        int linha = jTablePrestServico.getSelectedRow();
+      if(linha > -1){
+          DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();         
+         
+         n = (modelo.getValueAt(linha, 0).toString());
+      }
+     
+       int id = Integer.parseInt(n);
+      fao.deletar(id);
     }//GEN-LAST:event_jbExcFuncActionPerformed
 
     private void jbInsOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsOrcamentoActionPerformed
@@ -771,6 +830,36 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jbExcOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcOrcamentoActionPerformed
         teste();
     }//GEN-LAST:event_jbExcOrcamentoActionPerformed
+    public int selecaoTabela(){
+         CadastroDao cd = new CadastroDao();
+        String n = null;
+        int linha = JTableVisitante.getSelectedRow();
+      if(linha > -1){
+          DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();         
+         
+         n = (modelo.getValueAt(linha, 0).toString());
+      }
+     
+       int id = Integer.parseInt(n);
+       return id;
+    }
+     public List<Cadastro> editarVisitante() {
+             ArrayList visitante = new ArrayList();
+             Cadastro cad = new Cadastro();
+             int linha = JTableVisitante.getSelectedRow();
+             if(linha > -1){
+          DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
+             cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+             cad.setNome(modelo.getValueAt(linha, 1).toString());
+             cad.setDocumento(modelo.getValueAt(linha, 2).toString());
+             cad.setEndereco(modelo.getValueAt(linha, 3).toString());
+             cad.setTelefone(modelo.getValueAt(linha, 4).toString());
+             cad.setCidade(modelo.getValueAt(linha, 5).toString());
+             visitante.add(cad);
+            
+             }
+             return visitante;
+     }
     public void chamaTelaCadastro() {
         TelaCadastro tc = new TelaCadastro(this, rootPaneCheckingEnabled);
         tc.setVisible(true);
@@ -804,27 +893,65 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
      public void panelConsultaAberto(){
          PanelConsulta.setVisible(true);
+         
          preencherTableCliente();
+         preencherTableFunc();
     }
      public void preencherTableCliente(){
         DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
         modelo.setNumRows(0);   
-        //CadastroDao cdao = new CadastroDao();
-       //  for (Cadastro c: cdao.read())
-         //  {
-           //     modelo.addRow(new Object[]{ 
-            //        c.getCod(),
-             //       c.getNome(),
-              //      c.getDocumento(),
-               //     c.getEndereco(),
-                //    c.getTelefone(),
-                //    c.getCidade()
-            //  }); 
-           // }
-        
-        
-        
+        CadastroDao cdao = new CadastroDao();
+         for (Cadastro c: cdao.read())
+          {
+                modelo.addRow(new Object[]{ 
+                    c.getCod(),
+                   c.getNome(),
+                    c.getDocumento(),
+                    c.getEndereco(),
+                    c.getTelefone(),
+                    c.getCidade()
+              }); 
+            }
      }
+     public void preencherTableFunc(){
+        DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();
+        modelo.setNumRows(0);   
+        FuncionarioDao fdao = new FuncionarioDao();
+         for (Funcionario f: fdao.read())
+          {
+                modelo.addRow(new Object[]{ 
+                    f.getCod(),
+                    f.getNomeFunc(),
+                    f.getDocumento(),
+                    f.getEmpresa(),
+                    f.getFuncao(),
+                    f.getTelefone(),
+                    f.getEndereco(),
+                    f.getCidade()
+              }); 
+            }
+     }
+     public void preencherTableOrcamento(){
+        DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel();
+        modelo.setNumRows(0);   
+        OrcamentoDao odao = new OrcamentoDao();
+         for (Orcamento f: odao.read())
+          {
+                modelo.addRow(new Object[]{ 
+                    f.getCod(),
+                    f.getDiscricao(),
+                    f.getEmpresa(),
+                    f.getTelefone(),
+                    f.getDate(),
+                    f.getObs()
+              }); 
+            }
+     }
+     public void chamaTableOrcamento(){
+         panelConsultaAberto();
+         preencherTableOrcamento();
+         JTScroll.setSelectedIndex(3);
+     } 
      
     private void setIconefrmprincipal() {  //altera o icone do jform principal
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/app_logo_cityscape16.png")));  //opção 1
@@ -909,8 +1036,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JTable jTableFornecedor;
+    private javax.swing.JTable jTableOrcamento;
     private javax.swing.JTable jTablePrestServico;
-    private javax.swing.JTable jTablePrestServico1;
     private javax.swing.JButton jbEditCadCli;
     private javax.swing.JButton jbEditFornec;
     private javax.swing.JButton jbEditFunc;

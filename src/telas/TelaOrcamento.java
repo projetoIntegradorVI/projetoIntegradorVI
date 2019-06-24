@@ -5,13 +5,20 @@
  */
 package telas;
 
+import controle.Orcamento;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JOptionPane;
+import modelo.OrcamentoDao;
 
 /**
  *
  * @author Olivercom
  */
 public class TelaOrcamento extends javax.swing.JDialog {
+    FrmPrincipal frm = new FrmPrincipal();
+    int codigoAtualizacao; 
 
     /**
      * Creates new form TelaOrcamento
@@ -19,6 +26,20 @@ public class TelaOrcamento extends javax.swing.JDialog {
     public TelaOrcamento(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        clean();
+    }
+    public TelaOrcamento(Orcamento o) throws ParseException{
+         initComponents();
+         codigoAtualizacao = o.getCod();
+         txtDiscriOrcamento.setText(o.getDiscricao().toString());
+         txtEmpOrcamento.setText(o.getEmpresa().toString());
+         txtTelCadOrcamento.setText(o.getTelefone().toString());
+         SimpleDateFormat sdfs = new SimpleDateFormat( "dd-MM-yyyy" );   
+        //converter de Date para String  
+        String data1 = sdfs.format( o.getDate() ); 
+                jDChooser.setDate(sdfs.parse(o.getDate().toString()));
+         txtAreaObsCadOrcamento.setText(o.getObs().toString());
+         jbSalvarOrcamento.setText("ATUALIZAR");
     }
 
     /**
@@ -29,24 +50,23 @@ public class TelaOrcamento extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         jPCentro = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtDataCadOrcamento = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        txtDiscriOrcamento = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtTelCadOrcamento = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jComEmpCadOrcamento = new javax.swing.JComboBox<>();
         jbSalvarOrcamento = new javax.swing.JButton();
         jblimparOrcamento = new javax.swing.JButton();
         jbCancOrcamento = new javax.swing.JButton();
         jP_text_area = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAreaObsCadOrcamento = new javax.swing.JTextArea();
+        txtDiscriOrcamento = new javax.swing.JTextField();
+        txtTelCadOrcamento = new javax.swing.JTextField();
+        txtEmpOrcamento = new javax.swing.JTextField();
+        jDChooser = new com.toedter.calendar.JDateChooser();
         jTitulo = new javax.swing.JPanel();
         jLabel_img_titulo = new javax.swing.JLabel();
         jLabel_titulo = new javax.swing.JLabel();
@@ -55,109 +75,26 @@ public class TelaOrcamento extends javax.swing.JDialog {
         setResizable(false);
 
         jPCentro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPCentro.setLayout(new java.awt.GridBagLayout());
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel4.setText("Data :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.ipadx = 55;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 45, 0, 0);
-        jPCentro.add(jLabel4, gridBagConstraints);
-
-        txtDataCadOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtDataCadOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 6;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 273;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(txtDataCadOrcamento, gridBagConstraints);
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel1.setText("Discrição :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 27;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(36, 45, 0, 0);
-        jPCentro.add(jLabel1, gridBagConstraints);
-
-        txtDiscriOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtDiscriOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 273;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(33, 10, 0, 0);
-        jPCentro.add(txtDiscriOrcamento, gridBagConstraints);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel2.setText("Empresa :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 30;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(15, 45, 0, 0);
-        jPCentro.add(jLabel2, gridBagConstraints);
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel3.setText("Telefone :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.ipadx = 33;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(14, 45, 0, 0);
-        jPCentro.add(jLabel3, gridBagConstraints);
-
-        txtTelCadOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        txtTelCadOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 4;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 273;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(txtTelCadOrcamento, gridBagConstraints);
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jLabel6.setText("Observações :");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.ipadx = 5;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(8, 45, 0, 0);
-        jPCentro.add(jLabel6, gridBagConstraints);
-
-        jComEmpCadOrcamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.gridwidth = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 222;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 10, 0, 0);
-        jPCentro.add(jComEmpCadOrcamento, gridBagConstraints);
 
         jbSalvarOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbSalvarOrcamento.setText("Salvar");
@@ -166,13 +103,6 @@ public class TelaOrcamento extends javax.swing.JDialog {
                 jbSalvarOrcamentoActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 117, 33, 0);
-        jPCentro.add(jbSalvarOrcamento, gridBagConstraints);
 
         jblimparOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jblimparOrcamento.setText("Limpar");
@@ -181,12 +111,6 @@ public class TelaOrcamento extends javax.swing.JDialog {
                 jblimparOrcamentoActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 2;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 37, 33, 0);
-        jPCentro.add(jblimparOrcamento, gridBagConstraints);
 
         jbCancOrcamento.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jbCancOrcamento.setText("Cancelar");
@@ -195,13 +119,6 @@ public class TelaOrcamento extends javax.swing.JDialog {
                 jbCancOrcamentoActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 10;
-        gridBagConstraints.gridwidth = 4;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(11, 37, 33, 0);
-        jPCentro.add(jbCancOrcamento, gridBagConstraints);
 
         txtAreaObsCadOrcamento.setColumns(20);
         txtAreaObsCadOrcamento.setRows(5);
@@ -213,27 +130,106 @@ public class TelaOrcamento extends javax.swing.JDialog {
             jP_text_areaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_text_areaLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 26, Short.MAX_VALUE))
+                .addGap(0, 130, Short.MAX_VALUE))
         );
         jP_text_areaLayout.setVerticalGroup(
             jP_text_areaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jP_text_areaLayout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 100, Short.MAX_VALUE))
         );
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 8;
-        gridBagConstraints.gridwidth = 7;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 26;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 10, 0, 49);
-        jPCentro.add(jP_text_area, gridBagConstraints);
+        txtDiscriOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtDiscriOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
-        getContentPane().add(jPCentro, java.awt.BorderLayout.CENTER);
+        txtTelCadOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtTelCadOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        txtEmpOrcamento.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        txtEmpOrcamento.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+
+        jDChooser.setDateFormatString("dd/MM/yyyy");
+
+        javax.swing.GroupLayout jPCentroLayout = new javax.swing.GroupLayout(jPCentro);
+        jPCentro.setLayout(jPCentroLayout);
+        jPCentroLayout.setHorizontalGroup(
+            jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPCentroLayout.createSequentialGroup()
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtDiscriOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(txtEmpOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jP_text_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(123, 123, 123)
+                        .addComponent(jbSalvarOrcamento)
+                        .addGap(37, 37, 37)
+                        .addComponent(jblimparOrcamento)
+                        .addGap(37, 37, 37)
+                        .addComponent(jbCancOrcamento))
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPCentroLayout.createSequentialGroup()
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jDChooser, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPCentroLayout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(txtTelCadOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(56, 56, 56))
+        );
+        jPCentroLayout.setVerticalGroup(
+            jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPCentroLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel1))
+                    .addComponent(txtDiscriOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel2))
+                    .addComponent(txtEmpOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3))
+                    .addComponent(txtTelCadOrcamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(jDChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPCentroLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel6))
+                    .addComponent(jP_text_area, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPCentroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jbSalvarOrcamento)
+                    .addComponent(jblimparOrcamento)
+                    .addComponent(jbCancOrcamento)))
+        );
+
+        getContentPane().add(jPCentro, java.awt.BorderLayout.LINE_END);
 
         jTitulo.setBackground(new java.awt.Color(102, 102, 102));
         jTitulo.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -253,7 +249,17 @@ public class TelaOrcamento extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarOrcamentoActionPerformed
-    teste();
+         
+        JOptionPane.showMessageDialog(rootPane, " data");
+        if(jbSalvarOrcamento.getText().equals("Salvar")){
+              Salvar();
+              frm.chamaTableOrcamento();
+              this.dispose();
+          }else{
+             // Editar();
+              frm.chamaTableOrcamento();
+              this.dispose();
+          }
        
     }//GEN-LAST:event_jbSalvarOrcamentoActionPerformed
 
@@ -265,11 +271,37 @@ public class TelaOrcamento extends javax.swing.JDialog {
         clean();
     }//GEN-LAST:event_jblimparOrcamentoActionPerformed
     public void clean(){
-     txtDiscriOrcamento.setText("");
-     txtDataCadOrcamento.setText("");
-     txtTelCadOrcamento.setText("");
-     txtAreaObsCadOrcamento.setText("");
-     jComEmpCadOrcamento.getModel().setSelectedItem("");
+     txtDiscriOrcamento.setText(" ");
+     jDChooser.setDate(null);
+     txtTelCadOrcamento.setText(" ");
+     txtAreaObsCadOrcamento.setText(" ");
+     txtEmpOrcamento.setText(" ");
+    }
+   
+    public void Salvar(){
+        OrcamentoDao odao = new OrcamentoDao();
+        Orcamento o = new Orcamento();
+        o.setDiscricao(txtDiscriOrcamento.getText());
+        o.setEmpresa(txtEmpOrcamento.getText());
+        o.setTelefone(txtTelCadOrcamento.getText());
+        
+        o.setDate(jDChooser.getDate());
+        o.setObs(txtAreaObsCadOrcamento.getText());
+        odao.inserir(o);
+        frm.preencherTableOrcamento();
+        
+    }
+    public void Editar() throws ParseException{
+        OrcamentoDao odao = new OrcamentoDao();
+        Orcamento o = new Orcamento();
+        o.setCod(codigoAtualizacao);
+        o.setDiscricao(txtDiscriOrcamento.getText());
+        o.setEmpresa(txtEmpOrcamento.getText());
+        o.setTelefone(txtTelCadOrcamento.getText());
+        o.setDate(jDChooser.getDate());
+        
+        o.setObs(txtAreaObsCadOrcamento.getText());
+        odao.atualiza(o);
     }
     public void teste(){
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
@@ -317,7 +349,7 @@ public class TelaOrcamento extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComEmpCadOrcamento;
+    private com.toedter.calendar.JDateChooser jDChooser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -333,8 +365,8 @@ public class TelaOrcamento extends javax.swing.JDialog {
     private javax.swing.JButton jbSalvarOrcamento;
     private javax.swing.JButton jblimparOrcamento;
     private javax.swing.JTextArea txtAreaObsCadOrcamento;
-    private javax.swing.JTextField txtDataCadOrcamento;
     private javax.swing.JTextField txtDiscriOrcamento;
+    private javax.swing.JTextField txtEmpOrcamento;
     private javax.swing.JTextField txtTelCadOrcamento;
     // End of variables declaration//GEN-END:variables
 }

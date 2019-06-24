@@ -11,12 +11,15 @@ package controle;
  */
 public class Funcionario {
     private int Cod;
-    private String nomeFunc;
-    private String documento;
-    private String empresa;
-    private String funcao;
-    private String telefone;
-    private String cidade;
+    private String nomeFunc = " ";
+    private String documento = " ";
+    private String empresa = " ";
+    private String funcao = " ";
+    private String telefone = " ";
+    private String endereco = " ";
+     private String cidade = " ";
+
+   
 
     public int getCod() {
         return Cod;
@@ -65,6 +68,14 @@ public class Funcionario {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+     public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+   
 
     public String getCidade() {
         return cidade;

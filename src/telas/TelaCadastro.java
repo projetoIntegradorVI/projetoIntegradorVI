@@ -6,6 +6,7 @@
 package telas;
 
 import controle.Cadastro;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import modelo.CadastroDao;
 
@@ -15,6 +16,7 @@ import modelo.CadastroDao;
  */
 public class TelaCadastro extends javax.swing.JDialog {
 FrmPrincipal f = new FrmPrincipal();
+ int codigoAtualizacao;
     /**
      * Creates new form TelaCadastro
      */
@@ -23,8 +25,23 @@ FrmPrincipal f = new FrmPrincipal();
         initComponents();
         
     }
+    public TelaCadastro(Cadastro c){
+        
+        initComponents();
+     
+     codigoAtualizacao = c.getCod();
+     
+      //JOptionPane.showMessageDialog(rootPane, nome+" "+doc+" "+end+" "+tel+" "+cid);
+    txtNomeCli.setText(c.getNome().toString());
+      txtDocCli.setText(c.getDocumento().toString());
+       txtEndCli.setText(c.getEndereco().toString());
+      txtTelCli.setText(c.getTelefone().toString());
+       txtCidCli.setText(c.getCidade().toString());
+       btnCadCli.setText("ATUALIZAR");
+       
+    }
 
-   
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -243,20 +260,21 @@ FrmPrincipal f = new FrmPrincipal();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadCliActionPerformed
-        teste();
-
-
-
-      //Cadastro c = new Cadastro();
-       // CadastroDao  cd = new CadastroDao();
+       // teste();
+       if(btnCadCli.getText() == "Salvar"){
+        Cadastro c = new Cadastro();
+        CadastroDao  cd = new CadastroDao();
         
-       // c.setNome(txtNomeCli.getText());
-       // c.setDocumento(txtDocCli.getText());
-       // c.setTelefone(txtTelCli.getText());
-        //c.setEndereco(txtEndCli.getText());
-       // c.setCidade(txtCidCli.getText());
-       // cd.inserir(c);
-       // f.preencherTableCliente();
+        c.setNome(txtNomeCli.getText());
+        c.setDocumento(txtDocCli.getText());
+        c.setTelefone(txtTelCli.getText());
+        c.setEndereco(txtEndCli.getText());
+        c.setCidade(txtCidCli.getText());
+        cd.inserir(c);
+        f.preencherTableCliente();
+       }else{
+           Editar();
+       }
     }//GEN-LAST:event_btnCadCliActionPerformed
 
     private void jbCanCadClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCanCadClienteActionPerformed
@@ -272,6 +290,18 @@ FrmPrincipal f = new FrmPrincipal();
      txtEndCli.setText("");
      txtNomeCli.setText("");
      txtTelCli.setText("");
+    }
+    public void Editar(){
+        Cadastro c = new Cadastro();
+        CadastroDao  cd = new CadastroDao();
+        c.setCod(codigoAtualizacao);
+        c.setNome(txtNomeCli.getText());
+        c.setDocumento(txtDocCli.getText());
+        c.setTelefone(txtTelCli.getText());
+        c.setEndereco(txtEndCli.getText());
+        c.setCidade(txtCidCli.getText());
+        cd.atualiza(c);
+      
     }
      public void teste(){
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");

@@ -4,49 +4,40 @@
  * and open the template in the editor.
  */
 package modelo;
-import controle.Cadastro;
-import conexao.ConectaBanco;
-import java.awt.Component;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import java.awt.Component;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
+import conexao.ConectaBanco;
+import controle.Cadastro;
+import controle.Orcamento;
+import java.awt.Component;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Olivercom
  */
-public class CadastroDao {
-
-    public CadastroDao() {
+public class OrcamentoDao {
+    public OrcamentoDao(){
+        
     }
-    public void inserir(Cadastro c ) {
+    public void inserir(Orcamento o ) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
 
         try {
-          stmt = con.prepareStatement("INSERT INTO clientes (nomecli, doccli, endcli, telcli, cidcli)VALUES(?,?,?,?,?)");
-            stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+          stmt = con.prepareStatement("INSERT INTO orcamento (disc_orcamento, emp_orcamento, tel_orcamento, data_orcamento, obs_orcamento)VALUES(?,?,?,?,?)");
+            stmt.setString(1, o.getDiscricao());
+            stmt.setString(2, o.getEmpresa());
+            stmt.setString(3, o.getTelefone());
+            stmt.setString(4, o.getDate().toString());
+            stmt.setString(5, o.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Salvo com sucesso!");
         } catch (SQLException var8) {
@@ -62,7 +53,7 @@ public class CadastroDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM clientes WHERE idcli = "+id);
+            stmt = con.prepareStatement("DELETE FROM orcamento WHERE id_orcamento = "+id);
            // stmt.setInt(1, c.getCod());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Excluido com sucesso!");
@@ -73,17 +64,17 @@ public class CadastroDao {
         }
 
     }
-    public void atualiza(Cadastro c) {
+    public void atualiza(Orcamento o) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nomecli = ?, doccli = ?, endcli = ?, telcli = ? , cidcli = ?  WHERE idcli = "+c.getCod());
-            stmt.setString(1, c.getNome());
-            stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+            stmt = con.prepareStatement("UPDATE orcamento SET disc_orcamento = ?, emp_orcamento = ?, tel_orcamento = ?, data_orcamento = ? , obs_orcamento = ?  WHERE id_orcamento = "+o.getCod());
+            stmt.setString(1, o.getDiscricao());
+            stmt.setString(2, o.getEmpresa());
+            stmt.setString(3, o.getTelefone());
+            //stmt.setString(4, o.getDate());
+            stmt.setString(5, o.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Atualizado com sucesso!");
         } catch (SQLException var8) {
@@ -94,25 +85,25 @@ public class CadastroDao {
 
     }
     
-    public List<Cadastro> read() {
+    public List<Orcamento> read() {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        ArrayList clientes = new ArrayList();
+        ArrayList orcamentos = new ArrayList();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM clientes order by idcli");
+            stmt = con.prepareStatement("SELECT * FROM orcamento");
             rs = stmt.executeQuery();
 
             while(rs.next()) {
-                Cadastro cad = new Cadastro();
-                cad.setCod(rs.getInt("idcli"));
-                cad.setNome(rs.getString("nomecli"));
-                cad.setDocumento(rs.getString("doccli"));
-                cad.setEndereco(rs.getString("endcli"));
-                cad.setTelefone(rs.getString("telcli"));
-                cad.setCidade(rs.getString("cidcli"));
-                clientes.add(cad);
+                Orcamento o = new Orcamento();
+                o.setCod(rs.getInt("id_orcamento"));
+                o.setDiscricao(rs.getString("disc_orcamento"));
+                o.setEmpresa(rs.getString("emp_orcamneto"));
+                o.setTelefone(rs.getString("tel_orcamneto"));
+                o.setDate(rs.getDate("data_orcamento")); 
+                o.setObs(rs.getString("obs_orcamento")); 
+                orcamentos.add(o);
             }
         } catch (SQLException var9) {
             Logger.getLogger(CadastroDao.class.getName()).log(Level.SEVERE, (String)null, var9);
@@ -120,6 +111,6 @@ public class CadastroDao {
             ConectaBanco.fechaConnection(con, stmt, rs);
         }
 
-        return clientes;
+        return orcamentos;
     }
 }

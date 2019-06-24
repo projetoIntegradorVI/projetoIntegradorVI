@@ -29,7 +29,7 @@ public class ConectaBanco {
   public static Connection getConnection() {
         try {
             Class.forName(DRIVER);
-            return DriverManager.getConnection("jdbc:postgresql://localhost/bd001", "postgres", "sistemas01");
+            return DriverManager.getConnection(URL, USER, PASS );
         } catch (SQLException | ClassNotFoundException var1) {
             JOptionPane.showMessageDialog((Component)null, "erro conecta banco");
             throw new RuntimeException("Erro na conexão: ", var1);

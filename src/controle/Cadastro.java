@@ -11,11 +11,11 @@ package controle;
  */
 public class Cadastro {
     private int Cod;
-    private String nome;
-    private String documento;
-    private String endereco;
-    private String telefone;
-    private String cidade;
+    private String nome = " ";
+    private String documento = " ";
+    private String endereco = " ";
+    private String telefone = " ";
+    private String cidade = " ";
 
     public int getCod() {
         return Cod;
