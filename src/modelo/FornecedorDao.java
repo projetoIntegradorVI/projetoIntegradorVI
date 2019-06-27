@@ -7,6 +7,7 @@ package modelo;
 
 import conexao.ConectaBanco;
 import controle.Cadastro;
+import controle.Fornecedor;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,17 +26,18 @@ import javax.swing.JOptionPane;
 public class FornecedorDao {
      public FornecedorDao() {
     }
-     public void inserir(Cadastro c ) {
+     public void inserir(Fornecedor c ) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
 
         try {
-          stmt = con.prepareStatement("INSERT INTO clientes (nomecli, doccli, endcli, telcli, cidcli)VALUES(?,?,?,?,?)");
-            stmt.setString(1, c.getNome());
+          stmt = con.prepareStatement("INSERT INTO fornecedor (nome_fantasia, doc, resp, telef, endereco, cid)VALUES(?,?,?,?,?,?)");
+            stmt.setString(1, c.getEmpresa());
             stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+             stmt.setString(3, c.getResponsavel());
+             stmt.setString(4, c.getTelefone());
+            stmt.setString(5, c.getEndereco());            
+            stmt.setString(6, c.getCidade());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Salvo com sucesso!");
         } catch (SQLException var8) {
@@ -51,7 +53,7 @@ public class FornecedorDao {
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("DELETE FROM clientes WHERE idcli = "+id);
+            stmt = con.prepareStatement("DELETE FROM fornecedor WHERE id_forn = "+id);
            // stmt.setInt(1, c.getCod());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Excluido com sucesso!");
@@ -60,19 +62,19 @@ public class FornecedorDao {
         } finally {
             ConectaBanco.fechaConnection(con, stmt);
         }
-
     }
-    public void atualiza(Cadastro c) {
+    public void atualiza(Fornecedor c) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
 
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nomecli = ?, doccli = ?, endcli = ?, telcli = ? , cidcli = ?  WHERE idcli = "+c.getCod());
-            stmt.setString(1, c.getNome());
+            stmt = con.prepareStatement("UPDATE fornecedor SET nome_fantasia = ?, doc = ?, resp = ?, telef = ? , endereco = ?, cid = ?  WHERE id_forn = "+c.getCod());
+            stmt.setString(1, c.getEmpresa());
             stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+             stmt.setString(3, c.getResponsavel());
+             stmt.setString(4, c.getTelefone());
+            stmt.setString(5, c.getEndereco());            
+            stmt.setString(6, c.getCidade());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Atualizado com sucesso!");
         } catch (SQLException var8) {
@@ -80,35 +82,32 @@ public class FornecedorDao {
         } finally {
             ConectaBanco.fechaConnection(con, stmt);
         }
-
     }
     
-    public List<Cadastro> read() {
+    public List<Fornecedor> read() {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        ArrayList clientes = new ArrayList();
-
+        ArrayList fornecedor = new ArrayList();
         try {
-            stmt = con.prepareStatement("SELECT * FROM clientes");
+            stmt = con.prepareStatement("SELECT * FROM fornecedor");
             rs = stmt.executeQuery();
-
             while(rs.next()) {
-                Cadastro cad = new Cadastro();
-                cad.setCod(rs.getInt("idcli"));
-                cad.setNome(rs.getString("nomecli"));
-                cad.setDocumento(rs.getString("doccli"));
-                cad.setEndereco(rs.getString("endcli"));
-                cad.setTelefone(rs.getString("telcli"));
-                cad.setCidade(rs.getString("cidcli"));
-                clientes.add(cad);
+                Fornecedor cad = new Fornecedor();
+                cad.setCod(rs.getInt("id_forn"));
+                cad.setEmpresa(rs.getString("nome_fantasia"));
+                cad.setDocumento(rs.getString("doc"));
+                cad.setResponsavel(rs.getString("resp"));
+                cad.setTelefone(rs.getString("telef"));
+                cad.setEndereco(rs.getString("endereco"));
+                cad.setCidade(rs.getString("cid"));
+                fornecedor.add(cad);
             }
         } catch (SQLException var9) {
             Logger.getLogger(CadastroDao.class.getName()).log(Level.SEVERE, (String)null, var9);
         } finally {
             ConectaBanco.fechaConnection(con, stmt, rs);
         }
-
-        return clientes;
+        return fornecedor;
     }
 }

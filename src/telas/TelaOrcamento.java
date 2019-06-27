@@ -6,6 +6,7 @@
 package telas;
 
 import controle.Orcamento;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,16 +29,13 @@ public class TelaOrcamento extends javax.swing.JDialog {
         initComponents();
         clean();
     }
-    public TelaOrcamento(Orcamento o) throws ParseException{
+    public TelaOrcamento(Orcamento o){
          initComponents();
          codigoAtualizacao = o.getCod();
          txtDiscriOrcamento.setText(o.getDiscricao().toString());
          txtEmpOrcamento.setText(o.getEmpresa().toString());
          txtTelCadOrcamento.setText(o.getTelefone().toString());
-         SimpleDateFormat sdfs = new SimpleDateFormat( "dd-MM-yyyy" );   
-        //converter de Date para String  
-        String data1 = sdfs.format( o.getDate() ); 
-                jDChooser.setDate(sdfs.parse(o.getDate().toString()));
+         jDChooser.setDate(o.getDate());
          txtAreaObsCadOrcamento.setText(o.getObs().toString());
          jbSalvarOrcamento.setText("ATUALIZAR");
     }
@@ -249,18 +247,14 @@ public class TelaOrcamento extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarOrcamentoActionPerformed
-         
-        JOptionPane.showMessageDialog(rootPane, " data");
+      
         if(jbSalvarOrcamento.getText().equals("Salvar")){
-              Salvar();
-              frm.chamaTableOrcamento();
+              Salvar();              
               this.dispose();
           }else{
-             // Editar();
-              frm.chamaTableOrcamento();
-              this.dispose();
+              Editar();  
+              this.dispose();  
           }
-       
     }//GEN-LAST:event_jbSalvarOrcamentoActionPerformed
 
     private void jbCancOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancOrcamentoActionPerformed
@@ -284,24 +278,26 @@ public class TelaOrcamento extends javax.swing.JDialog {
         o.setDiscricao(txtDiscriOrcamento.getText());
         o.setEmpresa(txtEmpOrcamento.getText());
         o.setTelefone(txtTelCadOrcamento.getText());
-        
-        o.setDate(jDChooser.getDate());
+        Date date = new Date(jDChooser.getDate().getTime()); 
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        o.setDate(date);
         o.setObs(txtAreaObsCadOrcamento.getText());
         odao.inserir(o);
-        frm.preencherTableOrcamento();
+        frm.panelConsultaAberto();
         
     }
-    public void Editar() throws ParseException{
+    public void Editar(){
         OrcamentoDao odao = new OrcamentoDao();
         Orcamento o = new Orcamento();
         o.setCod(codigoAtualizacao);
         o.setDiscricao(txtDiscriOrcamento.getText());
         o.setEmpresa(txtEmpOrcamento.getText());
         o.setTelefone(txtTelCadOrcamento.getText());
-        o.setDate(jDChooser.getDate());
-        
+        o.setDate(jDChooser.getDate());        
         o.setObs(txtAreaObsCadOrcamento.getText());
         odao.atualiza(o);
+        frm.panelConsultaAberto();
+        
     }
     public void teste(){
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");

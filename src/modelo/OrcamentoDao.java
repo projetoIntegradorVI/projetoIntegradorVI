@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -30,13 +31,15 @@ public class OrcamentoDao {
     public void inserir(Orcamento o ) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
-
+        SimpleDateFormat sdfs = new SimpleDateFormat( "yyyy-MM-dd" ); 
+        String sValue = sdfs.format(o.getDate());
+        java.sql.Date  dtValue = java.sql.Date.valueOf(sValue);
         try {
           stmt = con.prepareStatement("INSERT INTO orcamento (disc_orcamento, emp_orcamento, tel_orcamento, data_orcamento, obs_orcamento)VALUES(?,?,?,?,?)");
             stmt.setString(1, o.getDiscricao());
             stmt.setString(2, o.getEmpresa());
             stmt.setString(3, o.getTelefone());
-            stmt.setString(4, o.getDate().toString());
+            stmt.setDate(4, dtValue);
             stmt.setString(5, o.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Salvo com sucesso!");
@@ -46,15 +49,12 @@ public class OrcamentoDao {
         } finally {
             ConectaBanco.fechaConnection(con, stmt);
         }
-
     }
     public void deletar(int id) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
-
         try {
-            stmt = con.prepareStatement("DELETE FROM orcamento WHERE id_orcamento = "+id);
-           // stmt.setInt(1, c.getCod());
+            stmt = con.prepareStatement("DELETE FROM orcamento WHERE id_orcamento = "+id);        
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Excluido com sucesso!");
         } catch (SQLException var8) {
@@ -62,18 +62,19 @@ public class OrcamentoDao {
         } finally {
             ConectaBanco.fechaConnection(con, stmt);
         }
-
     }
     public void atualiza(Orcamento o) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
-
+        SimpleDateFormat sdfs = new SimpleDateFormat( "yyyy-MM-dd" ); 
+        String sValue = sdfs.format(o.getDate());
+        java.sql.Date  dtValue = java.sql.Date.valueOf(sValue);
         try {
             stmt = con.prepareStatement("UPDATE orcamento SET disc_orcamento = ?, emp_orcamento = ?, tel_orcamento = ?, data_orcamento = ? , obs_orcamento = ?  WHERE id_orcamento = "+o.getCod());
             stmt.setString(1, o.getDiscricao());
             stmt.setString(2, o.getEmpresa());
             stmt.setString(3, o.getTelefone());
-            //stmt.setString(4, o.getDate());
+            stmt.setDate(4, dtValue);
             stmt.setString(5, o.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Atualizado com sucesso!");
@@ -82,9 +83,7 @@ public class OrcamentoDao {
         } finally {
             ConectaBanco.fechaConnection(con, stmt);
         }
-
-    }
-    
+    }    
     public List<Orcamento> read() {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
@@ -96,11 +95,11 @@ public class OrcamentoDao {
             rs = stmt.executeQuery();
 
             while(rs.next()) {
-                Orcamento o = new Orcamento();
+                Orcamento o = new Orcamento();              
                 o.setCod(rs.getInt("id_orcamento"));
                 o.setDiscricao(rs.getString("disc_orcamento"));
-                o.setEmpresa(rs.getString("emp_orcamneto"));
-                o.setTelefone(rs.getString("tel_orcamneto"));
+                o.setEmpresa(rs.getString("emp_orcamento"));
+                o.setTelefone(rs.getString("tel_orcamento"));
                 o.setDate(rs.getDate("data_orcamento")); 
                 o.setObs(rs.getString("obs_orcamento")); 
                 orcamentos.add(o);

@@ -6,14 +6,21 @@
 package telas;
 
 import controle.Cadastro;
+import controle.Fornecedor;
 import controle.Funcionario;
 import controle.Orcamento;
 import java.awt.Toolkit;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.CadastroDao;
+import modelo.FornecedorDao;
 import modelo.FuncionarioDao;
 import modelo.OrcamentoDao;
 
@@ -31,6 +38,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
        panelConsultaOculto();
        preencherTableCliente();
        preencherTableFunc();
+       preencherTableOrcamento();
        setIconefrmprincipal(); //Altera o icone da aplicação
     }
 
@@ -94,6 +102,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenu5_Options = new javax.swing.JMenu();
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        jMenuItem7 = new javax.swing.JMenuItem();
         jM_Ajuda = new javax.swing.JMenu();
         jMenu_Ajuda = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
@@ -622,12 +631,24 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu4_Fornecesor);
 
-        jMenu5_Options.setText("Opções");
-        jMenu5_Options.setEnabled(false);
+        jMenu5_Options.setText("Orcamento");
 
         jCheckBoxMenuItem1.setSelected(true);
-        jCheckBoxMenuItem1.setText("Menu Lateral");
+        jCheckBoxMenuItem1.setText("Cadastro Fornecedor");
+        jCheckBoxMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu5_Options.add(jCheckBoxMenuItem1);
+
+        jMenuItem7.setText("consulta");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu5_Options.add(jMenuItem7);
 
         jMenuBar1.add(jMenu5_Options);
 
@@ -733,103 +754,104 @@ public class FrmPrincipal extends javax.swing.JFrame {
         panelConsultaOculto();
         chamaTelaCadastro();
     }//GEN-LAST:event_jbutonInserirCadActionPerformed
-
+//editar visitante
     private void jbEditCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditCadCliActionPerformed
-        
         Cadastro cad = new Cadastro();
-        int linha = JTableVisitante.getSelectedRow();
-        if(linha > 0){
-        DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
-        cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-        cad.setNome(modelo.getValueAt(linha, 1).toString());
-        cad.setDocumento(modelo.getValueAt(linha, 2).toString());
-        cad.setEndereco(modelo.getValueAt(linha, 3).toString());
-        cad.setTelefone(modelo.getValueAt(linha, 4).toString());
-        cad.setCidade(modelo.getValueAt(linha, 5).toString());    
-        TelaCadastro tl = new TelaCadastro(cad);
-        tl.setVisible(true);
-        }else {
-                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela cliente", HEIGHT);
-               }
-     
+        TelaCadastro tl = new TelaCadastro(editarVisitante());
+        tl.setVisible(true);        
     }//GEN-LAST:event_jbEditCadCliActionPerformed
-
+//excluir visitante
     private void jbExcCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcCadCliActionPerformed
         CadastroDao cd = new CadastroDao();       
         JOptionPane.showMessageDialog(null, "id pras excluir" +selecaoTabela());
         cd.deletar(selecaoTabela());
     }//GEN-LAST:event_jbExcCadCliActionPerformed
-
+//editar fornecedor
     private void jbEditFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFornecActionPerformed
-        teste();
+        TelaFornecedor tf = new TelaFornecedor(editarFornecedor());
+        tf.setVisible(true);
+        panelConsultaOculto();
     }//GEN-LAST:event_jbEditFornecActionPerformed
-
+//excluir fornecedor
     private void jbExcFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFornecActionPerformed
-        teste();
+       Fornecedor o = new Fornecedor();
+        FornecedorDao odao = new FornecedorDao();
+         String n = null;
+        int linha = jTableFornecedor.getSelectedRow();       
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel(); 
+         n = (modelo.getValueAt(linha, 0).toString());        
+        }
+        int id = Integer.parseInt(n);
+      odao.deletar(id);
+     preencheTabelaFornecedor();
     }//GEN-LAST:event_jbExcFornecActionPerformed
-
+//gravar fornecedor
     private void jbInserirFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInserirFornecActionPerformed
         panelConsultaOculto();
         chamaTelaFornecedor();
     }//GEN-LAST:event_jbInserirFornecActionPerformed
-
+//gravar funcionario / prestador serviço
     private void jbInsFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsFuncActionPerformed
         panelConsultaOculto();
         chamaTelaFuncionario();
     }//GEN-LAST:event_jbInsFuncActionPerformed
-
+//editar funcionario
     private void jbEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFuncActionPerformed
-       Funcionario f = new Funcionario();
-        int linha = jTablePrestServico.getSelectedRow();
-        JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha"+linha, "tabela cliente", HEIGHT);
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
-        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-        f.setNomeFunc(modelo.getValueAt(linha, 1).toString());
-        f.setDocumento(modelo.getValueAt(linha, 2).toString());
-        f.setEmpresa(modelo.getValueAt(linha, 3).toString()); 
-        f.setFuncao(modelo.getValueAt(linha, 4).toString()); 
-        f.setTelefone(modelo.getValueAt(linha, 5).toString());
-        f.setEndereco(modelo.getValueAt(linha, 6).toString());
-        f.setCidade(modelo.getValueAt(linha, 7).toString());    
-        TelaFuncionario tl = new TelaFuncionario(f);
-        tl.setVisible(true);
-        }else {
-                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela cliente", HEIGHT);
-               }
-     
-    
-       
-       
-       
+        TelaFuncionario tl = new TelaFuncionario(editarFuncionario());
+        tl.setVisible(true);       
     }//GEN-LAST:event_jbEditFuncActionPerformed
-
+// excluir funcionario / prestador de servico
     private void jbExcFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFuncActionPerformed
       FuncionarioDao fao = new FuncionarioDao();
         String n = null;
         int linha = jTablePrestServico.getSelectedRow();
       if(linha > -1){
-          DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();         
-         
+          DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
          n = (modelo.getValueAt(linha, 0).toString());
       }
-     
        int id = Integer.parseInt(n);
-      fao.deletar(id);
+       fao.deletar(id);
     }//GEN-LAST:event_jbExcFuncActionPerformed
 
     private void jbInsOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsOrcamentoActionPerformed
         panelConsultaOculto();
         chamaTelaOrcamento();
     }//GEN-LAST:event_jbInsOrcamentoActionPerformed
-
+//editar orcamento
     private void jbEditOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditOrcamentoActionPerformed
-        teste();
+        
+        TelaOrcamento to = new TelaOrcamento(editarOrcamento());
+        to.setVisible(true);
+        panelConsultaOculto();
     }//GEN-LAST:event_jbEditOrcamentoActionPerformed
 
     private void jbExcOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcOrcamentoActionPerformed
-        teste();
+        Orcamento o = new Orcamento();
+        OrcamentoDao odao = new OrcamentoDao();
+         String n = null;
+        int linha = jTableOrcamento.getSelectedRow();       
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel(); 
+         n = (modelo.getValueAt(linha, 0).toString());        
+        }
+        int id = Integer.parseInt(n);
+      odao.deletar(id);
+      preencherTableOrcamento();
+      
     }//GEN-LAST:event_jbExcOrcamentoActionPerformed
+
+    private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+       panelConsultaOculto();
+        TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
+        to.setVisible(true);
+        
+    }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        panelConsultaAberto();
+        JTScroll.setSelectedIndex(3);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
     public int selecaoTabela(){
          CadastroDao cd = new CadastroDao();
         String n = null;
@@ -843,23 +865,84 @@ public class FrmPrincipal extends javax.swing.JFrame {
        int id = Integer.parseInt(n);
        return id;
     }
-     public List<Cadastro> editarVisitante() {
-             ArrayList visitante = new ArrayList();
+//editar visitante
+    public Cadastro editarVisitante() {            
              Cadastro cad = new Cadastro();
              int linha = JTableVisitante.getSelectedRow();
              if(linha > -1){
-          DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
+             DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
              cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
              cad.setNome(modelo.getValueAt(linha, 1).toString());
              cad.setDocumento(modelo.getValueAt(linha, 2).toString());
-             cad.setEndereco(modelo.getValueAt(linha, 3).toString());
-             cad.setTelefone(modelo.getValueAt(linha, 4).toString());
-             cad.setCidade(modelo.getValueAt(linha, 5).toString());
-             visitante.add(cad);
-            
+             cad.setTelefone(modelo.getValueAt(linha, 3).toString());
+             Date date;
+            try {
+                date = new SimpleDateFormat("dd/MM/yyyy").parse(modelo.getValueAt(linha, 4).toString());
+                cad.setDate(date);  
+            } catch (ParseException ex) {
+                Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }  
+             cad.setObs(modelo.getValueAt(linha, 5).toString());            
              }
-             return visitante;
+             return cad;
      }
+//editar funcionario
+    public Funcionario editarFuncionario(){
+         Funcionario f = new Funcionario();
+        int linha = jTablePrestServico.getSelectedRow();              
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
+        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+        f.setNomeFunc(modelo.getValueAt(linha, 1).toString());
+        f.setDocumento(modelo.getValueAt(linha, 2).toString());
+        f.setEmpresa(modelo.getValueAt(linha, 3).toString()); 
+        f.setFuncao(modelo.getValueAt(linha, 4).toString()); 
+        f.setTelefone(modelo.getValueAt(linha, 5).toString());
+        f.setEndereco(modelo.getValueAt(linha, 6).toString());
+        f.setCidade(modelo.getValueAt(linha, 7).toString());   
+        } else {
+                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
+               }   
+             return f;
+     }
+//editar orcamento    
+    public Orcamento editarOrcamento(){
+        Orcamento o = new Orcamento();
+        int linha = jTableOrcamento.getSelectedRow();       
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel(); 
+        o.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+        o.setDiscricao(modelo.getValueAt(linha, 1).toString());
+        o.setEmpresa(modelo.getValueAt(linha, 2).toString());
+        o.setTelefone(modelo.getValueAt(linha, 3).toString());
+        Date date;
+            try {
+                date = new SimpleDateFormat("dd/MM/yyyy").parse(modelo.getValueAt(linha, 4).toString());
+                o.setDate(date);  
+            } catch (ParseException ex) {
+                Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            }                
+        o.setObs(modelo.getValueAt(linha, 5).toString());
+        }
+        return o;
+    }
+    public Fornecedor editarFornecedor(){
+        Fornecedor f = new Fornecedor();
+        int linha = jTableFornecedor.getSelectedRow();              
+        if(linha > -1){
+        DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();   
+        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+        f.setEmpresa(modelo.getValueAt(linha, 1).toString());
+        f.setDocumento(modelo.getValueAt(linha, 2).toString());
+        f.setResponsavel(modelo.getValueAt(linha, 3).toString()); 
+        f.setTelefone(modelo.getValueAt(linha, 4).toString());
+        f.setEndereco(modelo.getValueAt(linha, 5).toString());
+        f.setCidade(modelo.getValueAt(linha, 6).toString());   
+        } else {
+                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
+               }   
+             return f;
+    }
     public void chamaTelaCadastro() {
         TelaCadastro tc = new TelaCadastro(this, rootPaneCheckingEnabled);
         tc.setVisible(true);
@@ -882,6 +965,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     public void chamaTelaOrcamento(){
         TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
         to.setVisible(true);
+        preencherTableOrcamento();
     }
 
     public void chamaTelaFuncionario() {
@@ -892,24 +976,26 @@ public class FrmPrincipal extends javax.swing.JFrame {
          PanelConsulta.setVisible(false);
     }
      public void panelConsultaAberto(){
-         PanelConsulta.setVisible(true);
-         
+         PanelConsulta.setVisible(true);         
          preencherTableCliente();
          preencherTableFunc();
+         preencherTableOrcamento();
+         preencheTabelaFornecedor();
     }
      public void preencherTableCliente(){
         DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
         modelo.setNumRows(0);   
         CadastroDao cdao = new CadastroDao();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
          for (Cadastro c: cdao.read())
           {
                 modelo.addRow(new Object[]{ 
                     c.getCod(),
                    c.getNome(),
                     c.getDocumento(),
-                    c.getEndereco(),
                     c.getTelefone(),
-                    c.getCidade()
+                    sdf.format(c.getDate()),
+                    c.getObs()
               }); 
             }
      }
@@ -935,6 +1021,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel();
         modelo.setNumRows(0);   
         OrcamentoDao odao = new OrcamentoDao();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
          for (Orcamento f: odao.read())
           {
                 modelo.addRow(new Object[]{ 
@@ -942,8 +1029,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
                     f.getDiscricao(),
                     f.getEmpresa(),
                     f.getTelefone(),
-                    f.getDate(),
+                    sdf.format(f.getDate()),
                     f.getObs()
+              }); 
+            }
+     }
+     public void preencheTabelaFornecedor(){
+         DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();
+        modelo.setNumRows(0);   
+         FornecedorDao odao = new FornecedorDao();        
+         for (Fornecedor f: odao.read())
+          {
+                modelo.addRow(new Object[]{ 
+                    f.getCod(),
+                    f.getEmpresa(),
+                    f.getDocumento(),
+                    f.getResponsavel(),
+                    f.getTelefone(),
+                    f.getEndereco(),
+                    f.getCidade()
               }); 
             }
      }
@@ -1019,6 +1123,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenu_Ajuda;
     private javax.swing.JMenuItem jMenu_Sobre;
     private javax.swing.JPanel jP_Baixo;

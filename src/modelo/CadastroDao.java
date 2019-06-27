@@ -21,6 +21,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -39,14 +40,17 @@ public class CadastroDao {
     public void inserir(Cadastro c ) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
+         SimpleDateFormat sdfs = new SimpleDateFormat( "yyyy-MM-dd" ); 
+        String sValue = sdfs.format(c.getDate());
+        java.sql.Date  dtValue = java.sql.Date.valueOf(sValue);
 
         try {
-          stmt = con.prepareStatement("INSERT INTO clientes (nomecli, doccli, endcli, telcli, cidcli)VALUES(?,?,?,?,?)");
+          stmt = con.prepareStatement("INSERT INTO clientes (nomecli, doccli, endcli, datacli, obscli)VALUES(?,?,?,?,?)");
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+            stmt.setString(3, c.getTelefone());
+            stmt.setDate(4, dtValue);
+            stmt.setString(5, c.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Salvo com sucesso!");
         } catch (SQLException var8) {
@@ -60,6 +64,7 @@ public class CadastroDao {
     public void deletar(int id) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
+        
 
         try {
             stmt = con.prepareStatement("DELETE FROM clientes WHERE idcli = "+id);
@@ -76,14 +81,17 @@ public class CadastroDao {
     public void atualiza(Cadastro c) {
         Connection con = ConectaBanco.getConnection();
         PreparedStatement stmt = null;
+        SimpleDateFormat sdfs = new SimpleDateFormat( "yyyy-MM-dd" ); 
+        String sValue = sdfs.format(c.getDate());
+        java.sql.Date  dtValue = java.sql.Date.valueOf(sValue);
 
         try {
-            stmt = con.prepareStatement("UPDATE clientes SET nomecli = ?, doccli = ?, endcli = ?, telcli = ? , cidcli = ?  WHERE idcli = "+c.getCod());
+            stmt = con.prepareStatement("UPDATE clientes SET nomecli = ?, doccli = ?, endcli = ?, datacli = ?, obscli = ? WHERE idcli = "+c.getCod());
             stmt.setString(1, c.getNome());
             stmt.setString(2, c.getDocumento());
-            stmt.setString(3, c.getEndereco());
-            stmt.setString(4, c.getTelefone());
-            stmt.setString(5, c.getCidade());
+            stmt.setString(3, c.getTelefone());
+            stmt.setDate(4, dtValue);
+            stmt.setString(5, c.getObs());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog((Component)null, "Atualizado com sucesso!");
         } catch (SQLException var8) {
@@ -109,9 +117,9 @@ public class CadastroDao {
                 cad.setCod(rs.getInt("idcli"));
                 cad.setNome(rs.getString("nomecli"));
                 cad.setDocumento(rs.getString("doccli"));
-                cad.setEndereco(rs.getString("endcli"));
-                cad.setTelefone(rs.getString("telcli"));
-                cad.setCidade(rs.getString("cidcli"));
+                cad.setTelefone(rs.getString("endcli"));
+                cad.setDate(rs.getDate("datacli"));
+                cad.setObs(rs.getString("obscli"));
                 clientes.add(cad);
             }
         } catch (SQLException var9) {

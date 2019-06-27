@@ -5,14 +5,17 @@
  */
 package telas;
 
+import controle.Fornecedor;
 import javax.swing.JOptionPane;
+import modelo.FornecedorDao;
 
 /**
  *
  * @author Olivercom
  */
 public class TelaFornecedor extends javax.swing.JDialog {
-
+FrmPrincipal f = new FrmPrincipal();
+ int codigoAtualizacao;
     /**
      * Creates new form TelaFornecedor
      */
@@ -20,7 +23,21 @@ public class TelaFornecedor extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-
+    public TelaFornecedor(Fornecedor c){
+        initComponents();
+     codigoAtualizacao = c.getCod();
+      txtNomeCadFornecedor.setText(c.getEmpresa().toString());
+      txtDocCadFornecedor.setText(c.getDocumento().toString());
+       txtRespCadFornecedor.setText(c.getResponsavel().toString());
+       txtEndCadFornecedor.setText(c.getEndereco().toString());
+      txtTelCadFornecedor.setText(c.getTelefone().toString());
+       txtCidCadFornecedor.setText(c.getCidade().toString());
+       jbSalvarCadFornecedor.setText("ATUALIZAR");
+        
+        
+        
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -258,7 +275,13 @@ public class TelaFornecedor extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadFornecedorActionPerformed
-        teste();
+        if(jbSalvarCadFornecedor.getText().equalsIgnoreCase("salvar")){
+            Salvar();
+        }else
+        {
+            editar();
+        }
+        this.dispose();
     }//GEN-LAST:event_jbSalvarCadFornecedorActionPerformed
 
     private void jbCanCadFornecedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCanCadFornecedorActionPerformed
@@ -278,6 +301,38 @@ public class TelaFornecedor extends javax.swing.JDialog {
     }
     public void teste(){
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
+    }
+    public void Salvar(){
+        Fornecedor c = new Fornecedor();
+        FornecedorDao cd= new FornecedorDao();
+       
+        c.setEmpresa(txtNomeCadFornecedor.getText());
+        c.setDocumento(txtDocCadFornecedor.getText());
+        c.setResponsavel(txtRespCadFornecedor.getText());
+        c.setTelefone(txtTelCadFornecedor.getText());
+        c.setEndereco(txtEndCadFornecedor.getText());
+        c.setCidade(txtCidCadFornecedor.getText());
+        cd.inserir(c);
+        f.preencherTableOrcamento();
+        clean();
+        this.dispose();
+       
+    }
+    public void editar(){
+        Fornecedor c = new Fornecedor();
+        FornecedorDao cd= new FornecedorDao();
+        c.setCod(codigoAtualizacao);
+        c.setEmpresa(txtNomeCadFornecedor.getText());
+        c.setDocumento(txtDocCadFornecedor.getText());
+        c.setResponsavel(txtRespCadFornecedor.getText());
+        c.setTelefone(txtTelCadFornecedor.getText());
+        c.setEndereco(txtEndCadFornecedor.getText());
+        c.setCidade(txtCidCadFornecedor.getText());
+        cd.atualiza(c);
+        f.preencherTableOrcamento();
+        clean();
+        this.dispose();
+        
     }
     /**
      * @param args the command line arguments

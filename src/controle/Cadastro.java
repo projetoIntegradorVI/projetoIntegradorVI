@@ -5,6 +5,8 @@
  */
 package controle;
 
+import java.util.Date;
+
 /**
  *
  * @author Olivercom
@@ -13,9 +15,10 @@ public class Cadastro {
     private int Cod;
     private String nome = " ";
     private String documento = " ";
-    private String endereco = " ";
-    private String telefone = " ";
-    private String cidade = " ";
+    private String telefone= " ";
+    private Date date;
+    private String obs = " ";
+
 
     public int getCod() {
         return Cod;
@@ -41,14 +44,6 @@ public class Cadastro {
         this.documento = documento;
     }
 
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
     public String getTelefone() {
         return telefone;
     }
@@ -57,12 +52,22 @@ public class Cadastro {
         this.telefone = telefone;
     }
 
-    public String getCidade() {
-        return cidade;
+    public Date getDate() {
+        return date;
     }
 
-    public void setCidade(String cidade) {
-        this.cidade = cidade;
+    public void setDate(Date date) {
+        this.date = date;
     }
+
+    public String getObs() {
+        return obs;
+    }
+
+    public void setObs(String obs) {
+        this.obs = obs;
+    }
+
+    
     
 }

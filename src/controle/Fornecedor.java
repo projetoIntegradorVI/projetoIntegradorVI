@@ -12,10 +12,10 @@ package controle;
 public class Fornecedor {
     private int Cod;
     private String empresa = " ";
-    private String documento = " ";
-    private String endereco = " ";
+    private String documento = " ";   
     private String responsavel = " ";
     private String telefone = " ";
+    private String endereco = " ";
     private String cidade = " ";
 
     public int getCod() {

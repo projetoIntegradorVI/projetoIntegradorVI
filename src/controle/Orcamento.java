@@ -55,9 +55,10 @@ public class Orcamento {
     }
 
     public Date getDate() {
-     JDateChooser  calendario = new JDateChooser(new Date(), "yyyy-MM-dd");
-        return calendario.getDate();
+        return date;
     }
+
+    
 
     public void setDate(Date date) {
         this.date = date;
