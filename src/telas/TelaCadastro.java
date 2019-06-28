@@ -265,10 +265,15 @@ FrmPrincipal f = new FrmPrincipal();
         c.setObs(txtObsCli.getText());
         cd.inserir(c);
         f.preencherTableCliente();
+        f.panelConsultaAberto();
         clean();
+        this.dispose();
        }else{
            Editar();
+           f.preencherTableCliente();
+           f.panelConsultaAberto();
            clean();
+           this.dispose();
        }
     }//GEN-LAST:event_btnCadCliActionPerformed
 

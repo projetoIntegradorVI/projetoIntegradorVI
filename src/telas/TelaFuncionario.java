@@ -15,9 +15,11 @@ import modelo.FuncionarioDao;
  *
  * @author Olivercom
  */
-public class TelaFuncionario extends javax.swing.JDialog {  
+public class TelaFuncionario extends javax.swing.JDialog {
+
     FrmPrincipal frm = new FrmPrincipal();
     int codigoAtualizacao;
+
     /**
      * Creates new form TelaFuncionario
      */
@@ -25,27 +27,24 @@ public class TelaFuncionario extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
     }
-    
-     public TelaFuncionario(Funcionario f){
-        
+
+    public TelaFuncionario(Funcionario f) {
+
         initComponents();
-     
-     codigoAtualizacao = f.getCod();
-     
-      //JOptionPane.showMessageDialog(rootPane, nome+" "+doc+" "+end+" "+tel+" "+cid);
-    txtNomeCadFunc.setText(f.getNomeFunc().toString());
-      txtDocCadFunc.setText(f.getDocumento().toString());
-       txtEmpCadFunc.setText(f.getEmpresa().toString());
-      txtFunCadFunc.setText(f.getFuncao().toString());
-      txtTelCadFunc.setText(f.getTelefone().toString());
-       txtEndCadFunc.setText(f.getEndereco().toString());
-       txtCidCadFunc.setText(f.getCidade().toString());
-       jbSalvarCadFunc.setText("ATUALIZAR");
-       
+
+        codigoAtualizacao = f.getCod();
+
+        //JOptionPane.showMessageDialog(rootPane, nome+" "+doc+" "+end+" "+tel+" "+cid);
+        txtNomeCadFunc.setText(f.getNomeFunc().toString());
+        txtDocCadFunc.setText(f.getDocumento().toString());
+        txtEmpCadFunc.setText(f.getEmpresa().toString());
+        txtFunCadFunc.setText(f.getFuncao().toString());
+        txtTelCadFunc.setText(f.getTelefone().toString());
+        txtEndCadFunc.setText(f.getEndereco().toString());
+        txtCidCadFunc.setText(f.getCidade().toString());
+        jbSalvarCadFunc.setText("ATUALIZAR");
+
     }
-
-   
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -314,10 +313,39 @@ public class TelaFuncionario extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbSalvarCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalvarCadFuncActionPerformed
-       //teste();
-       if(jbSalvarCadFunc.getText() == "Salvar"){
+        if (jbSalvarCadFunc.getText().equalsIgnoreCase("Salvar")) {
+            Salvar();
+            this.dispose();
+        } else {
+            Editar();
+            this.dispose();
+        }
+    }//GEN-LAST:event_jbSalvarCadFuncActionPerformed
+
+    private void txtFunCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFunCadFuncActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFunCadFuncActionPerformed
+
+    private void jbLimparCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparCadFuncActionPerformed
+        clean();
+    }//GEN-LAST:event_jbLimparCadFuncActionPerformed
+
+    private void jbCancelacadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelacadFuncActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jbCancelacadFuncActionPerformed
+    public void clean() {
+        txtNomeCadFunc.setText("");
+        txtDocCadFunc.setText("");
+        txtFunCadFunc.setText("");
+        txtEmpCadFunc.setText("");
+        txtEndCadFunc.setText("");
+        txtTelCadFunc.setText("");
+        txtCidCadFunc.setText("");
+    }
+
+    public void Salvar() {
         Funcionario f = new Funcionario();
-        FuncionarioDao  fd = new FuncionarioDao();
+        FuncionarioDao fd = new FuncionarioDao();
         f.setCod(codigoAtualizacao);
         f.setNomeFunc(txtNomeCadFunc.getText());
         f.setDocumento(txtDocCadFunc.getText());
@@ -327,49 +355,27 @@ public class TelaFuncionario extends javax.swing.JDialog {
         f.setEndereco(txtEndCadFunc.getText());
         f.setCidade(txtCidCadFunc.getText());
         fd.inserir(f);
-       frm.preencherTableFunc();
-       }else{
-          Editar();
-       }
-    }//GEN-LAST:event_jbSalvarCadFuncActionPerformed
-
-    private void txtFunCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFunCadFuncActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFunCadFuncActionPerformed
-
-    private void jbLimparCadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbLimparCadFuncActionPerformed
-       clean();
-    }//GEN-LAST:event_jbLimparCadFuncActionPerformed
-
-    private void jbCancelacadFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCancelacadFuncActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_jbCancelacadFuncActionPerformed
-    public void clean(){
-     txtNomeCadFunc.setText("");
-     txtDocCadFunc.setText("");
-     txtFunCadFunc.setText("");
-     txtEmpCadFunc.setText("");
-     txtEndCadFunc.setText("");
-     txtTelCadFunc.setText("");
-     txtCidCadFunc.setText("");
+        frm.preencherTableFunc();
     }
-    public void Editar(){
+
+    public void Editar() {
         Funcionario f = new Funcionario();
-        FuncionarioDao  fd = new FuncionarioDao();
-        JOptionPane.showMessageDialog(null, "codigo"+codigoAtualizacao);
+        FuncionarioDao fd = new FuncionarioDao();        
         f.setCod(codigoAtualizacao);
         f.setNomeFunc(txtNomeCadFunc.getText());
         f.setDocumento(txtDocCadFunc.getText());
         f.setEmpresa(txtEmpCadFunc.getText());
-         f.setFuncao(txtFunCadFunc.getText());
+        f.setFuncao(txtFunCadFunc.getText());
         f.setTelefone(txtTelCadFunc.getText());
         f.setEndereco(txtEndCadFunc.getText());
         f.setCidade(txtCidCadFunc.getText());
         fd.atualiza(f);
     }
-    public void teste(){
+
+    public void teste() {
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
     }
+
     /**
      * @param args the command line arguments
      */

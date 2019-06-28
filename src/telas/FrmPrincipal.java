@@ -35,11 +35,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
-       panelConsultaOculto();
-       preencherTableCliente();
-       preencherTableFunc();
-       preencherTableOrcamento();
-       setIconefrmprincipal(); //Altera o icone da aplicação
+        panelConsultaOculto();
+        setIconefrmprincipal(); //Altera o icone da aplicação
     }
 
     /**
@@ -688,25 +685,25 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         panelConsultaOculto();
         chamaTelaFornecedor();
-       
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         panelConsultaOculto();
         chamaTelaFuncionario();
-        
+
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         panelConsultaOculto();
         chamaTelaCadastro();
-        
+
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         panelConsultaOculto();
         chamaTelaFuncionario();
-       
+
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
@@ -719,22 +716,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         panelConsultaOculto();
         chamaTelaCadastro();
-        
+
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      chamaTelaOrcamento();
-      panelConsultaOculto();
+        chamaTelaOrcamento();
+        panelConsultaOculto();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         panelConsultaAberto();
-       preencherTableCliente();
+        panelConsultaAberto();
+        preencherTableCliente();
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-         panelConsultaAberto();
-         JTScroll.setSelectedIndex(0);
+        panelConsultaAberto();
+        JTScroll.setSelectedIndex(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
@@ -749,319 +746,337 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jMenu_AjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu_AjudaActionPerformed
         chamaTelaAjuda();
     }//GEN-LAST:event_jMenu_AjudaActionPerformed
-
+//botao inserir cadastro
     private void jbutonInserirCadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbutonInserirCadActionPerformed
         panelConsultaOculto();
         chamaTelaCadastro();
     }//GEN-LAST:event_jbutonInserirCadActionPerformed
-//editar visitante
+//botao editar visitante
     private void jbEditCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditCadCliActionPerformed
+        panelConsultaOculto();
         Cadastro cad = new Cadastro();
         TelaCadastro tl = new TelaCadastro(editarVisitante());
-        tl.setVisible(true);        
+        tl.setVisible(true);
     }//GEN-LAST:event_jbEditCadCliActionPerformed
-//excluir visitante
+//botao excluir visitante
     private void jbExcCadCliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcCadCliActionPerformed
-        CadastroDao cd = new CadastroDao();       
-        JOptionPane.showMessageDialog(null, "id pras excluir" +selecaoTabela());
+        CadastroDao cd = new CadastroDao();
         cd.deletar(selecaoTabela());
+        preencherTableCliente();
     }//GEN-LAST:event_jbExcCadCliActionPerformed
-//editar fornecedor
+//botao editar fornecedor
     private void jbEditFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFornecActionPerformed
         TelaFornecedor tf = new TelaFornecedor(editarFornecedor());
         tf.setVisible(true);
         panelConsultaOculto();
     }//GEN-LAST:event_jbEditFornecActionPerformed
-//excluir fornecedor
+//botao excluir fornecedor
     private void jbExcFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFornecActionPerformed
-       Fornecedor o = new Fornecedor();
+        Fornecedor o = new Fornecedor();
         FornecedorDao odao = new FornecedorDao();
-         String n = null;
-        int linha = jTableFornecedor.getSelectedRow();       
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel(); 
-         n = (modelo.getValueAt(linha, 0).toString());        
+        String n = null;
+        int linha = jTableFornecedor.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();
+            n = (modelo.getValueAt(linha, 0).toString());
         }
         int id = Integer.parseInt(n);
-      odao.deletar(id);
-     preencheTabelaFornecedor();
+        odao.deletar(id);
+        preencheTabelaFornecedor();
     }//GEN-LAST:event_jbExcFornecActionPerformed
-//gravar fornecedor
+//botao gravar fornecedor
     private void jbInserirFornecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInserirFornecActionPerformed
         panelConsultaOculto();
         chamaTelaFornecedor();
     }//GEN-LAST:event_jbInserirFornecActionPerformed
-//gravar funcionario / prestador serviço
+//botao gravar funcionario / prestador serviço
     private void jbInsFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsFuncActionPerformed
         panelConsultaOculto();
         chamaTelaFuncionario();
     }//GEN-LAST:event_jbInsFuncActionPerformed
-//editar funcionario
+//botao editar funcionario
     private void jbEditFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditFuncActionPerformed
         TelaFuncionario tl = new TelaFuncionario(editarFuncionario());
-        tl.setVisible(true);       
+        tl.setVisible(true);
+        panelConsultaOculto();
     }//GEN-LAST:event_jbEditFuncActionPerformed
-// excluir funcionario / prestador de servico
+// botao excluir funcionario / prestador de servico
     private void jbExcFuncActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcFuncActionPerformed
-      FuncionarioDao fao = new FuncionarioDao();
+        FuncionarioDao fao = new FuncionarioDao();
         String n = null;
         int linha = jTablePrestServico.getSelectedRow();
-      if(linha > -1){
-          DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
-         n = (modelo.getValueAt(linha, 0).toString());
-      }
-       int id = Integer.parseInt(n);
-       fao.deletar(id);
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();
+            n = (modelo.getValueAt(linha, 0).toString());
+        }
+        int id = Integer.parseInt(n);
+        fao.deletar(id);
+        panelConsultaAberto();
     }//GEN-LAST:event_jbExcFuncActionPerformed
-
+//botao  inserir orcamento
     private void jbInsOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInsOrcamentoActionPerformed
         panelConsultaOculto();
         chamaTelaOrcamento();
     }//GEN-LAST:event_jbInsOrcamentoActionPerformed
-//editar orcamento
+//botao editar orcamento
     private void jbEditOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditOrcamentoActionPerformed
-        
+
         TelaOrcamento to = new TelaOrcamento(editarOrcamento());
         to.setVisible(true);
         panelConsultaOculto();
     }//GEN-LAST:event_jbEditOrcamentoActionPerformed
-
+//botao  excluir orcamento
     private void jbExcOrcamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbExcOrcamentoActionPerformed
         Orcamento o = new Orcamento();
         OrcamentoDao odao = new OrcamentoDao();
-         String n = null;
-        int linha = jTableOrcamento.getSelectedRow();       
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel(); 
-         n = (modelo.getValueAt(linha, 0).toString());        
+        String n = null;
+        int linha = jTableOrcamento.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel();
+            n = (modelo.getValueAt(linha, 0).toString());
         }
         int id = Integer.parseInt(n);
-      odao.deletar(id);
-      preencherTableOrcamento();
-      
+        odao.deletar(id);
+        preencherTableOrcamento();
+
     }//GEN-LAST:event_jbExcOrcamentoActionPerformed
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
-       panelConsultaOculto();
-        TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
+        panelConsultaOculto();
+        TelaOrcamento to = new TelaOrcamento(this, rootPaneCheckingEnabled);
         to.setVisible(true);
-        
+
     }//GEN-LAST:event_jCheckBoxMenuItem1ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         panelConsultaAberto();
         JTScroll.setSelectedIndex(3);
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-    public int selecaoTabela(){
-         CadastroDao cd = new CadastroDao();
+    
+    public int selecaoTabela() {
+        CadastroDao cd = new CadastroDao();
         String n = null;
         int linha = JTableVisitante.getSelectedRow();
-      if(linha > -1){
-          DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();         
-         
-         n = (modelo.getValueAt(linha, 0).toString());
-      }
-     
-       int id = Integer.parseInt(n);
-       return id;
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
+
+            n = (modelo.getValueAt(linha, 0).toString());
+        }
+        int id = Integer.parseInt(n);
+        return id;
     }
 //editar visitante
-    public Cadastro editarVisitante() {            
-             Cadastro cad = new Cadastro();
-             int linha = JTableVisitante.getSelectedRow();
-             if(linha > -1){
-             DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();   
-             cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-             cad.setNome(modelo.getValueAt(linha, 1).toString());
-             cad.setDocumento(modelo.getValueAt(linha, 2).toString());
-             cad.setTelefone(modelo.getValueAt(linha, 3).toString());
-             Date date;
+
+    public Cadastro editarVisitante() {
+        Cadastro cad = new Cadastro();
+        int linha = JTableVisitante.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
+            cad.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+            cad.setNome(modelo.getValueAt(linha, 1).toString());
+            cad.setDocumento(modelo.getValueAt(linha, 2).toString());
+            cad.setTelefone(modelo.getValueAt(linha, 3).toString());
+            Date date;
             try {
                 date = new SimpleDateFormat("dd/MM/yyyy").parse(modelo.getValueAt(linha, 4).toString());
-                cad.setDate(date);  
+                cad.setDate(date);
             } catch (ParseException ex) {
                 Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }  
-             cad.setObs(modelo.getValueAt(linha, 5).toString());            
-             }
-             return cad;
-     }
+            }
+            cad.setObs(modelo.getValueAt(linha, 5).toString());
+        }
+        return cad;
+    }
 //editar funcionario
-    public Funcionario editarFuncionario(){
-         Funcionario f = new Funcionario();
-        int linha = jTablePrestServico.getSelectedRow();              
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();   
-        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-        f.setNomeFunc(modelo.getValueAt(linha, 1).toString());
-        f.setDocumento(modelo.getValueAt(linha, 2).toString());
-        f.setEmpresa(modelo.getValueAt(linha, 3).toString()); 
-        f.setFuncao(modelo.getValueAt(linha, 4).toString()); 
-        f.setTelefone(modelo.getValueAt(linha, 5).toString());
-        f.setEndereco(modelo.getValueAt(linha, 6).toString());
-        f.setCidade(modelo.getValueAt(linha, 7).toString());   
+
+    public Funcionario editarFuncionario() {
+        Funcionario f = new Funcionario();
+        int linha = jTablePrestServico.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();
+            f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+            f.setNomeFunc(modelo.getValueAt(linha, 1).toString());
+            f.setDocumento(modelo.getValueAt(linha, 2).toString());
+            f.setEmpresa(modelo.getValueAt(linha, 3).toString());
+            f.setFuncao(modelo.getValueAt(linha, 4).toString());
+            f.setTelefone(modelo.getValueAt(linha, 5).toString());
+            f.setEndereco(modelo.getValueAt(linha, 6).toString());
+            f.setCidade(modelo.getValueAt(linha, 7).toString());
         } else {
-                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
-               }   
-             return f;
-     }
+            JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
+        }
+        return f;
+    }
 //editar orcamento    
-    public Orcamento editarOrcamento(){
+
+    public Orcamento editarOrcamento() {
         Orcamento o = new Orcamento();
-        int linha = jTableOrcamento.getSelectedRow();       
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel(); 
-        o.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-        o.setDiscricao(modelo.getValueAt(linha, 1).toString());
-        o.setEmpresa(modelo.getValueAt(linha, 2).toString());
-        o.setTelefone(modelo.getValueAt(linha, 3).toString());
-        Date date;
+        int linha = jTableOrcamento.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel();
+            o.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+            o.setDiscricao(modelo.getValueAt(linha, 1).toString());
+            o.setEmpresa(modelo.getValueAt(linha, 2).toString());
+            o.setTelefone(modelo.getValueAt(linha, 3).toString());
+            Date date;
             try {
                 date = new SimpleDateFormat("dd/MM/yyyy").parse(modelo.getValueAt(linha, 4).toString());
-                o.setDate(date);  
+                o.setDate(date);
             } catch (ParseException ex) {
                 Logger.getLogger(FrmPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-            }                
-        o.setObs(modelo.getValueAt(linha, 5).toString());
+            }
+            o.setObs(modelo.getValueAt(linha, 5).toString());
         }
         return o;
     }
-    public Fornecedor editarFornecedor(){
+//edicao
+    public Fornecedor editarFornecedor() {
         Fornecedor f = new Fornecedor();
-        int linha = jTableFornecedor.getSelectedRow();              
-        if(linha > -1){
-        DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();   
-        f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
-        f.setEmpresa(modelo.getValueAt(linha, 1).toString());
-        f.setDocumento(modelo.getValueAt(linha, 2).toString());
-        f.setResponsavel(modelo.getValueAt(linha, 3).toString()); 
-        f.setTelefone(modelo.getValueAt(linha, 4).toString());
-        f.setEndereco(modelo.getValueAt(linha, 5).toString());
-        f.setCidade(modelo.getValueAt(linha, 6).toString());   
+        int linha = jTableFornecedor.getSelectedRow();
+        if (linha > -1) {
+            DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();
+            f.setCod(Integer.parseInt(modelo.getValueAt(linha, 0).toString()));
+            f.setEmpresa(modelo.getValueAt(linha, 1).toString());
+            f.setDocumento(modelo.getValueAt(linha, 2).toString());
+            f.setResponsavel(modelo.getValueAt(linha, 3).toString());
+            f.setTelefone(modelo.getValueAt(linha, 4).toString());
+            f.setEndereco(modelo.getValueAt(linha, 5).toString());
+            f.setCidade(modelo.getValueAt(linha, 6).toString());
         } else {
-                 JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
-               }   
-             return f;
+            JOptionPane.showMessageDialog(rootPane, "Seleciona uma linha", "tabela Funcionario", HEIGHT);
+        }
+        return f;
     }
+//chamando telas
     public void chamaTelaCadastro() {
         TelaCadastro tc = new TelaCadastro(this, rootPaneCheckingEnabled);
         tc.setVisible(true);
     }
-    public void teste(){
+
+    public void teste() {
         JOptionPane.showMessageDialog(null, "nao implementado \n Aguarde....");
     }
-    public void chamaTelaAjuda(){
-        TelaAjuda taj= new TelaAjuda(this, rootPaneCheckingEnabled);
+//chamando telas
+    public void chamaTelaAjuda() {
+        TelaAjuda taj = new TelaAjuda(this, rootPaneCheckingEnabled);
         taj.setVisible(true);
     }
-    public void chamaTelaAbout(){
+//chamando telas
+    public void chamaTelaAbout() {
         TelaAbout ta = new TelaAbout(this, rootPaneCheckingEnabled);
         ta.setVisible(true);
     }
+   //chamando telas
     public void chamaTelaFornecedor() {
         TelaFornecedor tf = new TelaFornecedor(this, rootPaneCheckingEnabled);
         tf.setVisible(true);
     }
-    public void chamaTelaOrcamento(){
-        TelaOrcamento to = new TelaOrcamento(this,rootPaneCheckingEnabled);
+//chamando telas
+    public void chamaTelaOrcamento() {
+        TelaOrcamento to = new TelaOrcamento(this, rootPaneCheckingEnabled);
         to.setVisible(true);
         preencherTableOrcamento();
     }
-
+//chamando telas
     public void chamaTelaFuncionario() {
         TelaFuncionario tfunc = new TelaFuncionario(this, rootPaneCheckingEnabled);
         tfunc.setVisible(true);
     }
-    public void panelConsultaOculto(){
-         PanelConsulta.setVisible(false);
+    
+    public void chamaTableOrcamento() {
+        panelConsultaAberto();
+        preencherTableOrcamento();
+        JTScroll.setSelectedIndex(3);
     }
-     public void panelConsultaAberto(){
-         PanelConsulta.setVisible(true);         
-         preencherTableCliente();
-         preencherTableFunc();
-         preencherTableOrcamento();
-         preencheTabelaFornecedor();
+
+    public void panelConsultaOculto() {
+        PanelConsulta.setVisible(false);
     }
-     public void preencherTableCliente(){
+
+    public void panelConsultaAberto() {        
+        preencherTableCliente();
+        preencherTableFunc();
+        preencherTableOrcamento();
+        preencheTabelaFornecedor();
+        PanelConsulta.setVisible(true);
+    }
+                   // preenchimento tabelas 
+    public void preencherTableCliente() {
         DefaultTableModel modelo = (DefaultTableModel) JTableVisitante.getModel();
-        modelo.setNumRows(0);   
+        modelo.setNumRows(0);
         CadastroDao cdao = new CadastroDao();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-         for (Cadastro c: cdao.read())
-          {
-                modelo.addRow(new Object[]{ 
-                    c.getCod(),
-                   c.getNome(),
-                    c.getDocumento(),
-                    c.getTelefone(),
-                    sdf.format(c.getDate()),
-                    c.getObs()
-              }); 
-            }
-     }
-     public void preencherTableFunc(){
+        for (Cadastro c : cdao.read()) {
+            modelo.addRow(new Object[]{
+                c.getCod(),
+                c.getNome(),
+                c.getDocumento(),
+                c.getTelefone(),
+                sdf.format(c.getDate()),
+                c.getObs()
+            });
+        }
+    }
+// preenchimento tabelas 
+    public void preencherTableFunc() {
         DefaultTableModel modelo = (DefaultTableModel) jTablePrestServico.getModel();
-        modelo.setNumRows(0);   
+        modelo.setNumRows(0);
         FuncionarioDao fdao = new FuncionarioDao();
-         for (Funcionario f: fdao.read())
-          {
-                modelo.addRow(new Object[]{ 
-                    f.getCod(),
-                    f.getNomeFunc(),
-                    f.getDocumento(),
-                    f.getEmpresa(),
-                    f.getFuncao(),
-                    f.getTelefone(),
-                    f.getEndereco(),
-                    f.getCidade()
-              }); 
-            }
-     }
-     public void preencherTableOrcamento(){
+        for (Funcionario f : fdao.read()) {
+            modelo.addRow(new Object[]{
+                f.getCod(),
+                f.getNomeFunc(),
+                f.getDocumento(),
+                f.getEmpresa(),
+                f.getFuncao(),
+                f.getTelefone(),
+                f.getEndereco(),
+                f.getCidade()
+            });
+        }
+    }
+// preenchimento tabelas 
+    public void preencherTableOrcamento() {
         DefaultTableModel modelo = (DefaultTableModel) jTableOrcamento.getModel();
-        modelo.setNumRows(0);   
+        modelo.setNumRows(0);
         OrcamentoDao odao = new OrcamentoDao();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-         for (Orcamento f: odao.read())
-          {
-                modelo.addRow(new Object[]{ 
-                    f.getCod(),
-                    f.getDiscricao(),
-                    f.getEmpresa(),
-                    f.getTelefone(),
-                    sdf.format(f.getDate()),
-                    f.getObs()
-              }); 
-            }
-     }
-     public void preencheTabelaFornecedor(){
-         DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();
-        modelo.setNumRows(0);   
-         FornecedorDao odao = new FornecedorDao();        
-         for (Fornecedor f: odao.read())
-          {
-                modelo.addRow(new Object[]{ 
-                    f.getCod(),
-                    f.getEmpresa(),
-                    f.getDocumento(),
-                    f.getResponsavel(),
-                    f.getTelefone(),
-                    f.getEndereco(),
-                    f.getCidade()
-              }); 
-            }
-     }
-     public void chamaTableOrcamento(){
-         panelConsultaAberto();
-         preencherTableOrcamento();
-         JTScroll.setSelectedIndex(3);
-     } 
-     
+        for (Orcamento f : odao.read()) {
+            modelo.addRow(new Object[]{
+                f.getCod(),
+                f.getDiscricao(),
+                f.getEmpresa(),
+                f.getTelefone(),
+                sdf.format(f.getDate()),
+                f.getObs()
+            });
+        }
+    }
+// preenchimento tabelas 
+    public void preencheTabelaFornecedor() {
+        DefaultTableModel modelo = (DefaultTableModel) jTableFornecedor.getModel();
+        modelo.setNumRows(0);
+        FornecedorDao odao = new FornecedorDao();
+        for (Fornecedor f : odao.read()) {
+            modelo.addRow(new Object[]{
+                f.getCod(),
+                f.getEmpresa(),
+                f.getDocumento(),
+                f.getResponsavel(),
+                f.getTelefone(),
+                f.getEndereco(),
+                f.getCidade()
+            });
+        }
+    }
+
+    
+
     private void setIconefrmprincipal() {  //altera o icone do jform principal
         //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/app_logo_cityscape16.png")));  //opção 1
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icones/logotipo_base16.jpg"))); //opção 2
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -1093,7 +1108,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrmPrincipal().setVisible(true);
-                
+
             }
         });
     }
@@ -1156,6 +1171,5 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jbInserirFornec;
     private javax.swing.JButton jbutonInserirCad;
     // End of variables declaration//GEN-END:variables
-
 
 }

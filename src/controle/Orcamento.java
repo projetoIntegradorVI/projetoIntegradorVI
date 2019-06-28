@@ -16,11 +16,11 @@ import telas.TelaCadastro;
  */
 public class Orcamento {
     private int cod;
-    private String discricao = " ";
-    private String empresa = " ";
-    private String telefone = " ";
+    private String discricao ;
+    private String empresa ;
+    private String telefone;
     private Date date;
-    private String obs = " ";
+    private String obs;
 
     public int getCod() {
         return cod;
